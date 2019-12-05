@@ -1,0 +1,28 @@
+header {
+	padding: 2rem;
+	display: flex;
+}
+.title {
+	text-decoration: none;
+	margin-right: 2.5rem;
+	font-weight: 800;
+	color: #222;
+}
+
+.nav-list {
+	list-style-type: none;
+	display: flex;
+	margin: 0;
+}
+
+.nav-item {
+	font-size: 0.9rem;
+	margin-right: 2rem;
+	text-decoration: none;
+	color: #222;
+}
+
+.active-nav-item {
+	padding-bottom: 0.3rem;
+	border-bottom: 1px solid #222;
+}

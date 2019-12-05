@@ -1,0 +1,12 @@
+.container {
+	background: #ffc107;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.content {
+	padding: 2rem;
+	justify-content: flex-start;
+	flex-grow: 1;
+}

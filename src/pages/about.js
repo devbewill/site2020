@@ -2,12 +2,12 @@ import React from 'react';
 import Layout from '../components/layout';
 import PageTitle from '../components/Pagetitle';
 
-const IndexPage = () => {
+const AboutPage = () => {
 	return (
 		<Layout>
 			<PageTitle>
 				<h1>
-					i <br />design <br />interfaces
+					something <br />about <br />me
 				</h1>
 				<p>
 					I tend to look for inspiration from observation, conversation, and everything around me to extend my
@@ -23,4 +23,4 @@ const IndexPage = () => {
 	);
 };
 
-export default IndexPage;
+export default AboutPage;
