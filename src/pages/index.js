@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
 import PageTitle from '../components/Pagetitle';
 
@@ -8,6 +9,25 @@ const IndexPage = () => {
 			i <br />design <br />interfaces
 		</React.Fragment>
 	);
+
+	const data = useStaticQuery(graphql`
+		query {
+			allMarkdownRemark {
+				edges {
+					node {
+						frontmatter {
+							title
+							date
+						}
+						fields {
+							slug
+						}
+					}
+				}
+			}
+		}
+	`);
+
 	return (
 		<Layout>
 			<PageTitle
@@ -20,6 +40,19 @@ const IndexPage = () => {
 					learn new and more meaningful ways to solve problems, and new skills that help me turn my ideas into
 					real, and awesome experiences/products."
 			/>
+
+			<ul>
+				{data.allMarkdownRemark.edges.map((edge, index) => {
+					return (
+						<li key={index}>
+							<Link to={`/blog/${edge.node.fields.slug}`}>
+								<span>{edge.node.frontmatter.date}</span>
+								<h2>{edge.node.frontmatter.title}</h2>
+							</Link>
+						</li>
+					);
+				})}
+			</ul>
 		</Layout>
 	);
 };

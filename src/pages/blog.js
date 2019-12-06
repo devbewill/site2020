@@ -27,9 +27,9 @@ const BlogPage = () => {
 		<Layout>
 			<PageTitle title="blog" description="some description" />
 			<ul className={blogStyles.posts}>
-				{data.allMarkdownRemark.edges.map((edge) => {
+				{data.allMarkdownRemark.edges.map((edge, index) => {
 					return (
-						<li className={blogStyles.post}>
+						<li key={index} className={blogStyles.post}>
 							<Link to={`/blog/${edge.node.fields.slug}`}>
 								<span>{edge.node.frontmatter.date}</span>
 								<h2>{edge.node.frontmatter.title}</h2>
