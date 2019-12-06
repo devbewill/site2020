@@ -25,13 +25,7 @@ const BlogPage = () => {
 
 	return (
 		<Layout>
-			{/* <PageTitle>
-				<h1>
-					the <br />posts <br />page
-				</h1>
-
-				<p>I tend to look for inspiration from observation</p>
-			</PageTitle> */}
+			<PageTitle title="blog" description="some description" />
 			<ul className={blogStyles.posts}>
 				{data.allMarkdownRemark.edges.map((edge) => {
 					return (

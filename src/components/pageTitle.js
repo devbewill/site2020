@@ -1,9 +1,13 @@
 import React from 'react';
 import pageTitleStyles from './pageTitle.module.scss';
-import { checkPropTypes } from 'prop-types';
 
 const PageTitle = (props) => {
-	return <div>{props.children}</div>;
+	return (
+		<div className={pageTitleStyles.container}>
+			<h1>{props.title}</h1>
+			<p>{props.description}</p>
+		</div>
+	);
 };
 
 export default PageTitle;
