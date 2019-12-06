@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
+import postStyles from './post.module.scss';
 
 export const query = graphql`
 	query($slug: String!) {
@@ -19,7 +20,10 @@ const Blog = (props) => {
 		<Layout>
 			<h1>{props.data.markdownRemark.frontmatter.title}</h1>
 			<h6>{props.data.markdownRemark.frontmatter.date}</h6>
-			<div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
+			<div
+				className={postStyles.postWrapper}
+				dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}
+			/>
 		</Layout>
 	);
 };
