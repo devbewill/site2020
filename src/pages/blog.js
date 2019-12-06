@@ -5,18 +5,33 @@ import PageTitle from '../components/Pagetitle';
 import blogStyles from './blog.module.scss';
 
 const BlogPage = () => {
+	// LOCALE POSTS
+	//const data = useStaticQuery(graphql`
+	// 	query {
+	// 		allMarkdownRemark {
+	// 			edges {
+	// 				node {
+	// 					frontmatter {
+	// 						title
+	// 						date
+	// 					}
+	// 					fields {
+	// 						slug
+	// 					}
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// `);
+
 	const data = useStaticQuery(graphql`
 		query {
-			allMarkdownRemark {
+			allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
 				edges {
 					node {
-						frontmatter {
-							title
-							date
-						}
-						fields {
-							slug
-						}
+						title
+						slug
+						publishedDate(fromNow: true)
 					}
 				}
 			}
@@ -26,13 +41,14 @@ const BlogPage = () => {
 	return (
 		<Layout>
 			<PageTitle title="blog" description="some description" />
+
 			<ul className={blogStyles.posts}>
-				{data.allMarkdownRemark.edges.map((edge, index) => {
+				{data.allContentfulBlogPost.edges.map((edge, index) => {
 					return (
 						<li key={index} className={blogStyles.post}>
-							<Link to={`/blog/${edge.node.fields.slug}`}>
-								<span>{edge.node.frontmatter.date}</span>
-								<h2>{edge.node.frontmatter.title}</h2>
+							<Link to={`/blog/${edge.node.slug}`}>
+								<span>{edge.node.publishedDate}</span>
+								<h2>{edge.node.title}</h2>
 							</Link>
 						</li>
 					);
