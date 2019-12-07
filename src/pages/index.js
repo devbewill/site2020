@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
 import PageTitle from '../components/Pagetitle';
+import Head from '../components/head';
 
 const IndexPage = () => {
 	const titleMultipleLine = (
@@ -12,6 +12,7 @@ const IndexPage = () => {
 
 	return (
 		<Layout>
+			<Head title="Home" />
 			<PageTitle
 				title={titleMultipleLine}
 				description="I tend to look for inspiration from observation, conversation, and everything around me to extend my
