@@ -1,29 +1,10 @@
 import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
-import PageTitle from '../components/Pagetitle';
+import PageTitle from '../components/pageTitle';
 import blogStyles from './blog.module.scss';
 
 const BlogPage = () => {
-	// LOCALE POSTS
-	//const data = useStaticQuery(graphql`
-	// 	query {
-	// 		allMarkdownRemark {
-	// 			edges {
-	// 				node {
-	// 					frontmatter {
-	// 						title
-	// 						date
-	// 					}
-	// 					fields {
-	// 						slug
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// `);
-
 	const data = useStaticQuery(graphql`
 		query {
 			allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
