@@ -10,6 +10,7 @@ module.exports = {
 		author: 'Stefano Perelli'
 	},
 	plugins: [
+		`gatsby-plugin-styled-components`,
 		'gatsby-plugin-react-helmet',
 		{
 			resolve: 'gatsby-source-contentful',
