@@ -2,15 +2,29 @@ import React from 'react';
 import Header from './header.js';
 import Footer from './footer.js';
 import '../styles/index.scss';
-import layoutStyles from './layout.module.scss';
+import styled from 'styled-components';
+
+const Container = styled.div`
+	background: #ffc107;
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+`;
+
+const Content = styled.div`
+	padding: 2rem;
+	justify-content: flex-start;
+	flex-grow: 1;
+`;
 
 const Layout = (props) => {
 	return (
-		<div className={layoutStyles.container}>
+		<Container>
 			<Header />
-			<div className={layoutStyles.content}>{props.children}</div>
+			<Content>{props.children}</Content>
 			<Footer />
-		</div>
+		</Container>
 	);
 };
 

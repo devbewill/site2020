@@ -21,7 +21,7 @@ export const query = graphql`
 	}
 `;
 
-const Blog = (props) => {
+const Post = (props) => {
 	const options = {
 		renderNode: {
 			'embedded-asset-block': (node) => {
@@ -31,14 +31,22 @@ const Blog = (props) => {
 			}
 		}
 	};
+
+	const title = props.data.contentfulBlogPost.title;
+	const publishedDate = props.data.contentfulBlogPost.publishedDate;
+	const bodyPost = documentToReactComponents(props.data.contentfulBlogPost.body.json, options);
+
 	return (
 		<Layout>
-			<img src={props.data.contentfulBlogPost.featuredImage.file.url} alt="" />
-			<h1>{props.data.contentfulBlogPost.title}</h1>
-			<p>{props.data.contentfulBlogPost.publishedDate}</p>
-			{documentToReactComponents(props.data.contentfulBlogPost.body.json, options)}
+			{props.data.contentfulBlogPost.featuredImage && (
+				<img src={props.data.contentfulBlogPost.featuredImage.file.url} alt="" />
+			)}
+
+			<h1>{title}</h1>
+			<div>{publishedDate}</div>
+			<div className="bodyPost">{bodyPost}</div>
 		</Layout>
 	);
 };
 
-export default Blog;
+export default Post;

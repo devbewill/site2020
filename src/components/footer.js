@@ -1,6 +1,8 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import footerStyles from './footer.module.scss';
+import styled from 'styled-components';
+
+const FooterStyled = styled.footer`padding: 1rem;`;
 
 const Footer = () => {
 	const data = useStaticQuery(graphql`
@@ -15,9 +17,9 @@ const Footer = () => {
 	`);
 
 	return (
-		<footer className={footerStyles.footer}>
+		<FooterStyled>
 			{data.site.siteMetadata.title} - footer component - made in Milano by {data.site.siteMetadata.author}
-		</footer>
+		</FooterStyled>
 	);
 };
 
