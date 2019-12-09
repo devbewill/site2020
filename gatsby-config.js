@@ -6,8 +6,8 @@
 
 module.exports = {
 	siteMetadata: {
-		title: 'stefanoperelli',
-		author: 'stefano perelli'
+		title: 'stefanoperelli.com',
+		author: 'Stefano Perelli'
 	},
 	plugins: [
 		'gatsby-plugin-react-helmet',
