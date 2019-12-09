@@ -9,6 +9,11 @@ export const query = graphql`
 		contentfulBlogPost(slug: { eq: $slug }) {
 			title
 			publishedDate(fromNow: true)
+			featuredImage {
+				file {
+					url
+				}
+			}
 			body {
 				json
 			}
@@ -28,8 +33,10 @@ const Blog = (props) => {
 	};
 	return (
 		<Layout>
+			<img src={props.data.contentfulBlogPost.featuredImage.file.url} alt="" />
 			<h1>{props.data.contentfulBlogPost.title}</h1>
 			<p>{props.data.contentfulBlogPost.publishedDate}</p>
+			{/* <p>{props.data.contentfulBlogPost.testCache}</p> */}
 			{documentToReactComponents(props.data.contentfulBlogPost.body.json, options)}
 		</Layout>
 	);
