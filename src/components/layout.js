@@ -4,7 +4,7 @@ import Footer from './footer.js';
 import '../styles/index.scss';
 import styled from 'styled-components';
 
-const Container = styled.div`
+const StyledLayout = styled.div`
 	background: #ffc107;
 	background: #fff;
 	display: flex;
@@ -20,11 +20,11 @@ const Content = styled.div`
 
 const Layout = (props) => {
 	return (
-		<Container>
+		<StyledLayout>
 			<Header />
 			<Content>{props.children}</Content>
 			<Footer />
-		</Container>
+		</StyledLayout>
 	);
 };
 

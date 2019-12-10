@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Layout from '../components/layout';
-// import postStyles from './post.module.scss';
 
 export const query = graphql`
 	query($slug: String!) {
@@ -38,6 +37,7 @@ const Post = (props) => {
 
 	return (
 		<Layout>
+			{/* if != null (in some post the featured images isnt defined) */}
 			{props.data.contentfulBlogPost.featuredImage && (
 				<img src={props.data.contentfulBlogPost.featuredImage.file.url} alt="" />
 			)}
