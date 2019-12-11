@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Layout from '../components/layout';
 
@@ -41,10 +41,16 @@ const Post = (props) => {
 			{props.data.contentfulBlogPost.featuredImage && (
 				<img src={props.data.contentfulBlogPost.featuredImage.file.url} alt="" />
 			)}
-
 			<h1>{title}</h1>
 			<div>{publishedDate}</div>
 			<div className="bodyPost">{bodyPost}</div>
+
+			<div>
+				{props.pageContext.next && <Link to={`/blog/${props.pageContext.next.slug}`}>next post</Link>}
+				{props.pageContext.previous && (
+					<Link to={`/blog/${props.pageContext.previous.slug}`}>previous post</Link>
+				)}
+			</div>
 		</Layout>
 	);
 };
