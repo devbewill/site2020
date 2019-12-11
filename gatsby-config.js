@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
+const path = require('path');
 
 module.exports = {
 	siteMetadata: {
@@ -24,8 +25,9 @@ module.exports = {
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {
-				name: 'src',
-				path: `${__dirname}/src`
+				name: 'images',
+				// path: `${__dirname}/src`
+				path: path.join(__dirname, `src`, `images`)
 			}
 		},
 		`gatsby-plugin-sharp`,
