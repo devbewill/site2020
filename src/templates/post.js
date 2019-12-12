@@ -9,8 +9,8 @@ export const query = graphql`
 			title
 			publishedDate(fromNow: true)
 			featuredImage {
-				file {
-					url
+				fluid(maxWidth: 1500) {
+					...GatsbyContentfulFluid_withWebp
 				}
 			}
 			body {
@@ -39,18 +39,31 @@ const Post = (props) => {
 		<Layout>
 			{/* if != null (in some post the featured images isnt defined) */}
 			{props.data.contentfulBlogPost.featuredImage && (
-				<img src={props.data.contentfulBlogPost.featuredImage.file.url} alt="" />
+				<img src={props.data.contentfulBlogPost.featuredImage.fluid.src} alt="" />
 			)}
+
 			<h1>{title}</h1>
 			<div>{publishedDate}</div>
 			<div className="bodyPost">{bodyPost}</div>
 
-			<div>
-				{props.pageContext.next && <Link to={`/blog/${props.pageContext.next.slug}`}>next post</Link>}
-				{props.pageContext.previous && (
-					<Link to={`/blog/${props.pageContext.previous.slug}`}>previous post</Link>
-				)}
-			</div>
+			<nav>
+				<ul>
+					<li>
+						{props.pageContext.previous && (
+							<Link to={`/blog/${props.pageContext.previous.slug}`} rel="prev">
+								prev
+							</Link>
+						)}
+					</li>
+					<li>
+						{props.pageContext.next && (
+							<Link to={`/blog/${props.pageContext.next.slug}`} rel="next">
+								next
+							</Link>
+						)}
+					</li>
+				</ul>
+			</nav>
 		</Layout>
 	);
 };
