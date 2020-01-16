@@ -6,7 +6,6 @@ import styled from 'styled-components';
 
 const StyledLayout = styled.div`
 	background: #ffc107;
-	background: #fff;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
