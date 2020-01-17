@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import Pagetitle from '../components/pagetitle';
 import Head from '../components/head';
+import Portfolio from '../components/portfolio';
 
 const IndexPage = () => {
 	const titleMultipleLine = (
@@ -23,6 +24,8 @@ const IndexPage = () => {
 					learn new and more meaningful ways to solve problems, and new skills that help me turn my ideas into
 					real, and awesome experiences/products."
 			/>
+
+			<Portfolio />
 		</Layout>
 	);
 };

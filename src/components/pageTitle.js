@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledPagetitle = styled.div`
 	h1 {
-		font-size: 7rem;
+		font-size: 10vw;
 		white-space: pre;
 	}
 
