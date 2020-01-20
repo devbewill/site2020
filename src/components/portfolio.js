@@ -116,7 +116,6 @@ const Portfolio = (props) => {
 				return (
 					<GridBox key={index}>
 						<GridBoxHovering />
-						{console.log(edge.node.body)}
 						<GridBoxDescription>{edge.node.title}</GridBoxDescription>
 						{/* <img src={edge.node.featuredImage.fluid.src} alt="" />
 						<h1>{edge.node.project}</h1>
