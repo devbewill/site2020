@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import vector from '../images/vector.svg';
 import styled from 'styled-components';
 
@@ -17,7 +17,7 @@ const GridBox = styled.div`
 	display: flex;
 	width: 30%;
 	height: 200px;
-	margin: 0;
+	margin: 1.5em 0;
 	flex-direction: row;
 	justify-content: center;
 `;
@@ -64,7 +64,7 @@ const GridBoxDescription = styled.p`
 	}
 `;
 
-const Anchor = styled.a`
+const Anchor = styled(Link)`
 	position: relative;
 	z-index: 999;
 	display: block;
@@ -86,12 +86,13 @@ const Anchor = styled.a`
 const Portfolio = (props) => {
 	const data = useStaticQuery(graphql`
 		query {
-			allContentfulPortfolio {
+			allContentfulProject {
 				edges {
 					node {
-						project
-						description {
-							description
+						title
+						slug
+						body {
+							body
 						}
 						featuredImage {
 							file {
@@ -111,12 +112,12 @@ const Portfolio = (props) => {
 
 	return (
 		<Grid>
-			{data.allContentfulPortfolio.edges.map((edge, index) => {
+			{data.allContentfulProject.edges.map((edge, index) => {
 				return (
 					<GridBox key={index}>
 						<GridBoxHovering />
-						<GridBoxDescription>{edge.node.description.description}</GridBoxDescription>
-						<Anchor href="" img={edge.node.featuredImage.file.url} />
+						{console.log(edge.node.body)}
+						<GridBoxDescription>{edge.node.title}</GridBoxDescription>
 						{/* <img src={edge.node.featuredImage.fluid.src} alt="" />
 						<h1>{edge.node.project}</h1>
 						<p>{edge.node.description.description}</p> */}
@@ -124,6 +125,7 @@ const Portfolio = (props) => {
 						{edge.node.gallery.map((img, index) => {
 							return <img key={index} src={img.fluid.src} alt="" />;
 						})} */}
+						<Anchor to={`/portfolio/${edge.node.slug}`} img={edge.node.featuredImage.file.url} />
 					</GridBox>
 				);
 			})}
