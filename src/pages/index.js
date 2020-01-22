@@ -25,6 +25,24 @@ const IndexPage = () => {
 					real, and awesome experiences/products."
 			/>
 
+			<p>
+				My expertise covers the entire digital product design process, including user experience, user interface
+				design, fronted development and API connections. I like building new products from scratch or optimizing
+				existing ones to permit perform better from both a user and business perspective. Product design vision
+				and conceptual design are the key part of every success project.
+			</p>
+
+			<p>
+				I am an insatiably curious and emotionally intelligent senior product designer who enjoys bringing
+				enthusiasm to both my work and my team. I pride myself on my ability to learn quickly, my drive, and my
+				diverse skillset (of UX, visual design and development). Having programming skills and API and SDK
+				knowledge, allow me to create data-driven designs that translate well to code. My background in UX
+				allows me to design user-centric experiences for both individual projects and for scalable recurring
+				revenue generating products.
+			</p>
+
+			<h1>My focus is</h1>
+
 			<Portfolio />
 		</Layout>
 	);

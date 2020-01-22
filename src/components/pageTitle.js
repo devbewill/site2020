@@ -3,14 +3,17 @@ import styled from 'styled-components';
 
 const StyledPagetitle = styled.div`
 	h1 {
-		font-size: 10vw;
+		font-size: 8rem;
 		white-space: pre;
+		line-height: 1;
+		color: #ff8300;
 	}
 
 	p {
-		max-width: 1000px;
-		font-size: 1.8rem;
-		line-height: 1.3;
+		font-size: 1.2rem;
+		max-width: 750px;
+		font-weight: 300;
+		line-height: 1.5;
 	}
 `;
 

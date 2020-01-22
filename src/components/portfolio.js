@@ -4,8 +4,8 @@ import vector from '../images/vector.svg';
 import styled from 'styled-components';
 
 const Grid = styled.div`
+	padding: 4 em;
 	display: flex;
-	margin: 5em auto;
 	max-width: none;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -13,12 +13,11 @@ const Grid = styled.div`
 
 const GridBox = styled.div`
 	position: relative;
-	padding: 1em;
+	padding: 0;
 	display: flex;
-	width: 30%;
-	height: 200px;
-	margin: 1.5em 0;
-	flex-direction: row;
+	width: 45%;
+	height: 300px;
+	margin: 3em 0;
 	justify-content: center;
 `;
 
@@ -42,15 +41,14 @@ const GridBoxHovering = styled.div`
 	transition: transform 400ms ease, opacity 300ms ease;
 	opacity: 0;
 
-	${GridBox}:hover & {
+	/* ${GridBox}:hover & {
 		transform: rotate(50deg);
 		opacity: 1;
-	}
+	} */
 `;
 
 const GridBoxDescription = styled.p`
 	position: absolute;
-	left: 0%;
 	top: 50%;
 	right: 0%;
 	bottom: 0%;
@@ -68,18 +66,21 @@ const Anchor = styled(Link)`
 	position: relative;
 	z-index: 999;
 	display: block;
-	width: 80%;
+	width: 100%;
 	height: 100%;
-	background-color: transparent;
+	box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),0 6.7px 5.3px rgba(0, 0, 0, 0.048),0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),  0 41.8px 33.4px rgba(0, 0, 0, 0.086),  0 100px 80px rgba(0, 0, 0, 0.12);
 	background-image: url(${(props) => props.img});
-	background-position: 50% 50%;
-	background-size: contain;
+
+	background-size: cover;
 	background-repeat: no-repeat;
-	transition: opacity 200ms ease;
+	transition: all 600ms ease-in-out;
+
 	opacity: 1;
 
+
 	${GridBox}:hover & {
-		opacity: 0;
+		/* opacity: 0; */
+		transform: translate(10px,-10px)
 	}
 `;
 
@@ -91,6 +92,7 @@ const Portfolio = (props) => {
 					node {
 						title
 						slug
+						description
 						body {
 							body
 						}
@@ -116,7 +118,7 @@ const Portfolio = (props) => {
 				return (
 					<GridBox key={index}>
 						<GridBoxHovering />
-						<GridBoxDescription>{edge.node.title}</GridBoxDescription>
+						<GridBoxDescription>{edge.node.description}</GridBoxDescription>
 						{/* <img src={edge.node.featuredImage.fluid.src} alt="" />
 						<h1>{edge.node.project}</h1>
 						<p>{edge.node.description.description}</p> */}

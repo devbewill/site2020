@@ -5,16 +5,23 @@ import '../styles/index.scss';
 import styled from 'styled-components';
 
 const StyledLayout = styled.div`
-	background: #ffc107;
-	background: #eee;
-	display: flex;
-	flex-direction: column;
+	background: #560c84;
 	min-height: 100vh;
+	/* * {
+		transition: all 600ms ease-in-out;
+	}
+
+	*:hover {
+		transform: scale(1.01);
+	} */
 `;
 
 const Content = styled.div`
-	padding: 2rem;
-	justify-content: flex-start;
+	padding-top: 30vh;
+	margin: 0 auto;
+	align-items: center;
+	justify-content: center;
+	max-width: 75vw;
 	flex-grow: 1;
 `;
 

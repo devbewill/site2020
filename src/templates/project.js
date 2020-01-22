@@ -12,8 +12,8 @@ export const query = graphql`
 				json
 			}
 			featuredImage {
-				fluid(maxWidth: 400) {
-					...GatsbyContentfulFluid_withWebp
+				file {
+					url
 				}
 			}
 		}
@@ -39,7 +39,7 @@ const Project = (props) => {
 		<Layout>
 			{/* if != null (in some post the featured images isnt defined) */}
 			{props.data.contentfulProject.featuredImage && (
-				<img src={props.data.contentfulProject.featuredImage.fluid.src} alt="" />
+				<img src={props.data.contentfulProject.featuredImage.file.url} alt="" />
 			)}
 
 			<h1>{title}</h1>
