@@ -46,8 +46,8 @@ const BlogPage = () => {
 
 	return (
 		<Layout>
-			<Head title="Blog" />
-			<Pagetitle title="blog" description="some description" />
+			<Head title="Words" />
+			<Pagetitle title="Words" description="some description" />
 
 			<PostList>
 				{data.allContentfulBlogPost.edges.map((edge, index) => {

@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Container } from '../styles/styledComponent';
 
 const StyledPagetitle = styled.div`
 	h1 {
+		padding-top: 35vh;
 		font-size: 8rem;
-		white-space: pre;
 		line-height: 1;
-		color: #ff8300;
+		/* color: #ff8300;
+		color: #560c84; */
+		font-weight: 800;
 	}
 
 	p {
-		font-size: 1.2rem;
-		max-width: 750px;
+		font-size: 2rem;
 		font-weight: 300;
 		line-height: 1.5;
 	}
@@ -19,10 +21,12 @@ const StyledPagetitle = styled.div`
 
 const Pagetitle = (props) => {
 	return (
-		<StyledPagetitle>
-			<h1>{props.title}</h1>
-			<p>{props.description}</p>
-		</StyledPagetitle>
+		<Container>
+			<StyledPagetitle>
+				<h1>{props.title}</h1>
+				<p>{props.description}</p>
+			</StyledPagetitle>
+		</Container>
 	);
 };
 

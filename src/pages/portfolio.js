@@ -45,8 +45,8 @@ const PortfolioPage = () => {
 
 	return (
 		<Layout>
-			<Head title="Portfolio" />
-			<Pagetitle title="portfolio" description="some description" />
+			<Head title="works" />
+			<Pagetitle title="works" description="some description" />
 
 			<PostList>
 				{data.allContentfulProject.edges.map((edge, index) => {

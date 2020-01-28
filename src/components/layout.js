@@ -3,10 +3,20 @@ import Header from './header.js';
 import Footer from './footer.js';
 import '../styles/index.scss';
 import styled from 'styled-components';
+import letterbg from '../images/letter_S.svg';
 
 const StyledLayout = styled.div`
-	background: #560c84;
+	background: #fafafa url(${letterbg}) no-repeat top right;
+	background: #fafafa;
+	background-position: fixed;
+	background-size: auto 120vh;
+	/* mask-size: 100vh;
+	mask-repeat: no-repeat;
+	mask-position: right; */
+	/* background: #560c84; */
 	min-height: 100vh;
+	color: #222;
+
 	/* * {
 		transition: all 600ms ease-in-out;
 	}
@@ -14,22 +24,17 @@ const StyledLayout = styled.div`
 	*:hover {
 		transform: scale(1.01);
 	} */
-`;
 
-const Content = styled.div`
-	padding-top: 30vh;
-	margin: 0 auto;
-	align-items: center;
-	justify-content: center;
-	max-width: 75vw;
-	flex-grow: 1;
+	p {
+		color: #000;
+	}
 `;
 
 const Layout = (props) => {
 	return (
 		<StyledLayout>
 			<Header />
-			<Content>{props.children}</Content>
+			{props.children}
 			<Footer />
 		</StyledLayout>
 	);

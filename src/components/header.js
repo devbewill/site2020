@@ -34,7 +34,7 @@ const NavList = styled.ul`
 	a {
 		text-decoration: none;
 		margin: 0 1rem;
-		color: #fff;
+		color: #222;
 		font-weight: 300;
 		&.active {
 			padding-bottom: 0.1rem;
@@ -58,22 +58,22 @@ const Header = () => {
 			<NavList>
 				<li>
 					<Link to="/" activeClassName="active">
-						{data.site.siteMetadata.title}
+						stefanoperelli
 					</Link>
 				</li>
-				<li>
+				{/* <li>
 					<Link to="/about" activeClassName="active">
 						About
 					</Link>
-				</li>
+				</li> */}
 				<li>
 					<Link to="/portfolio" activeClassName="active">
-						Portfolio
+						works
 					</Link>
 				</li>
 				<li>
 					<Link to="/blog" activeClassName="active">
-						Blog
+						words
 					</Link>
 				</li>
 			</NavList>
