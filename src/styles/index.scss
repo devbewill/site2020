@@ -621,8 +621,23 @@ pre tt:after {
 	content: "";
 }
 
+html {
+	font-size: calc(1em + 1vw);
+}
+
 @media only screen and (max-width: 480px) {
 	html {
 		font-size: 100%;
 	}
+}
+
+@media screen and (min-width: 50em) {
+	html {
+		font-size: 1.5em;
+	}
+}
+
+p {
+	line-height: 1.4rem;
+	font-size: 1rem;
 }

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { InView } from 'react-intersection-observer';
+import React from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import styled from 'styled-components';
-import { getRandomColor, Container } from '../styles/styledComponent';
+import { getRandomColor, Container, SectionTitle } from '../styles/styledComponent';
 import { WorksStyled } from '../styles/worksStyled';
 
 const Anchor = styled(Link)`
@@ -12,47 +11,7 @@ const Anchor = styled(Link)`
 
 `;
 
-const SectionTitle = styled.h1`
-	position: fixed;
-	z-index: 999;
-	right: 10vw;
-	top: 10%;
-	text-align: right;
-	padding: 0;
-	margin: 0;
-	font-size: 4rem;
-	font-weight: 800;
-	opacity: 0;
-	transition: opacity 0.5s ease-in-out;
-
-	&.--inView {
-		opacity: 1;
-	}
-
-	&.--notInView {
-		opacity: 0;
-	}
-`;
-
-const Works = (props, inView) => {
-	const setInViewWorkTitle = (inView, entry) => {
-		if (!inView) {
-			setTimeout(() => {
-				setInViewEl(false);
-			}, 500);
-		} else {
-			setTimeout(() => {
-				setCurrentWork(entry.target.title);
-
-				setInViewEl(true);
-			}, 500);
-		}
-
-		console.log(entry);
-	};
-	const [ currentWork, setCurrentWork ] = useState('');
-	const [ inViewEl, setInViewEl ] = useState(false);
-
+const Works = (props) => {
 	const data = useStaticQuery(graphql`
 		query {
 			allContentfulProject {
@@ -83,15 +42,13 @@ const Works = (props, inView) => {
 		}
 	`);
 
-	// console.log('Inview:', inView, entry)
 	return (
 		<React.Fragment>
-			<SectionTitle className={`${!inViewEl ? '--notInView' : '--inView'}`}>{currentWork} </SectionTitle>
+			<SectionTitle>works </SectionTitle>
 			<Container>
 				{data.allContentfulProject.edges.map((edge, index) => {
 					return (
-						<WorksStyled className={`${!inViewEl ? '--notInView' : '--inView'}`}>
-							<InView key={index} threshold="1" title={edge.node.title} onChange={setInViewWorkTitle} />
+						<WorksStyled key={index}>
 							<div className="workText">
 								<h3>{edge.node.title}</h3>
 								<p>{edge.node.descriptionLong.descriptionLong}</p>
@@ -106,7 +63,6 @@ const Works = (props, inView) => {
 									})
 								) : null}
 							</div>
-							<InView />
 						</WorksStyled>
 					);
 				})}

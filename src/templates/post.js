@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Layout from '../components/layout';
+import TextContent from '../components/textContent';
 
 export const query = graphql`
 	query($slug: String!) {
@@ -9,12 +10,17 @@ export const query = graphql`
 			title
 			publishedDate(fromNow: true)
 			featuredImage {
-				fluid(maxWidth: 1500) {
+				fluid(maxWidth: 1200) {
 					...GatsbyContentfulFluid_withWebp
 				}
 			}
 			body {
 				json
+			}
+			bodyMd {
+				childMarkdownRemark {
+					html
+				}
 			}
 		}
 	}
@@ -34,6 +40,9 @@ const Post = (props) => {
 	const title = props.data.contentfulBlogPost.title;
 	const publishedDate = props.data.contentfulBlogPost.publishedDate;
 	const bodyPost = documentToReactComponents(props.data.contentfulBlogPost.body.json, options);
+	const bodyMD = props.data.contentfulBlogPost.bodyMd.childMarkdownRemark.html;
+	const danger_dom = <div dangerouslySetInnerHTML={{ __html: bodyMD }} />;
+	const dom = <div>{danger_dom}</div>;
 
 	return (
 		<Layout>
@@ -45,6 +54,8 @@ const Post = (props) => {
 			<h1>{title}</h1>
 			<div>{publishedDate}</div>
 			<div className="bodyPost">{bodyPost}</div>
+
+			<TextContent content={props.data.contentfulBlogPost.bodyMd.childMarkdownRemark.html} />
 
 			<nav>
 				<ul>

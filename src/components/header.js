@@ -6,7 +6,7 @@ const Navbar = styled.header`
 	width: 100%;
 	position: fixed;
 	display: flex;
-	padding: 4rem 2rem 2rem;
+	padding: 2rem 2rem 2rem;
 	top: 0;
 `;
 

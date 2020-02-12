@@ -31,6 +31,23 @@ module.exports = {
 			}
 		},
 		`gatsby-plugin-sharp`,
-		`gatsby-transformer-sharp`
+		`gatsby-transformer-sharp`,
+		{
+			resolve: `gatsby-transformer-remark`,
+			options: {
+				plugins: [
+					{
+						resolve: `gatsby-remark-prismjs`,
+						options: {
+							classPrefix: 'language-',
+							inlineCodeMarker: true,
+							aliases: {},
+							showLineNumbers: false,
+							noInlineHighlight: false
+						}
+					}
+				]
+			}
+		}
 	]
 };
