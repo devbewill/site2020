@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './header.js';
 import Footer from './footer.js';
 import '../styles/index.scss';
+import '../styles/default.scss';
 import styled from 'styled-components';
 import letterbg from '../images/letter_S.svg';
 
@@ -16,9 +17,6 @@ const StyledLayout = styled.div`
 	background: #fafafa;
 	min-height: 100vh;
 	color: #222;
-
-
-	p {color: #111}
 `;
 
 const Layout = (props) => {

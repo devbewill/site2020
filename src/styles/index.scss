@@ -4,6 +4,7 @@ html {
 	font-family: sans-serif;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
+	overflow: hidden;
 }
 body {
 	margin: 0;
@@ -201,8 +202,6 @@ html {
 	box-sizing: inherit;
 }
 body {
-	color: #fff;
-	background: #111;
 	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-weight: normal;
@@ -389,7 +388,6 @@ p {
 	padding-right: 0;
 	padding-top: 0;
 	margin-bottom: 1.45rem;
-	color: #fff;
 }
 figure {
 	margin-left: 0;
@@ -625,9 +623,13 @@ html {
 	font-size: calc(1em + 1vw);
 }
 
+p {
+	font-size: 1rem;
+}
+
 @media only screen and (max-width: 480px) {
 	html {
-		font-size: 100%;
+		font-size: 120%;
 	}
 }
 
@@ -635,9 +637,4 @@ html {
 	html {
 		font-size: 1.5em;
 	}
-}
-
-p {
-	line-height: 1.4rem;
-	font-size: 1rem;
 }

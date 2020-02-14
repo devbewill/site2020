@@ -4,7 +4,7 @@ import { Container } from '../styles/styledComponent';
 
 const StyledPagetitle = styled.div`
 	h1 {
-		padding-top: 33vh;
+		padding-top: 30vh;
 		font-size: 6rem;
 		line-height: 1;
 		/* color: #ff8300;
