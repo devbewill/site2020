@@ -17,9 +17,9 @@ const IndexPage = (props) => {
 		<Layout>
 			<Container>
 				<Head title="Home" />
-				<div className="pageTitle">
+				<section className="pageTitle">
 					<h1>
-						Solving <br />problem <br />with <span className="underline">design</span>
+						Solving<br /> problems <br />with <span className="underline">design</span>
 					</h1>
 
 					<p>
@@ -27,15 +27,27 @@ const IndexPage = (props) => {
 						interface, frontend development and API connections. I like building new products or evolving
 						existing ones to permit perform better from both a user and business perspective.
 					</p>
-				</div>
+				</section>
 			</Container>
 
 			{/* <Pagetitle
 				title={titleMultipleLine}
 				description="My expertise covers the entire digital product design process, including user experience and interface, frontend development and API connections. I like building new products or evolving existing ones to permit perform better from both a user and business perspective."
 			/> */}
+			<section className="quote">
+				<div className="content">
+					<p>
+						<em>
+							I never design a building before I've seen the site and met the people who will be using it.
+						</em>
+						<span>__Frank Lloyd Wright</span>
+					</p>
+				</div>
+			</section>
 			<section className="knowhow">
-				<h2>knowhow</h2>
+				<h2 className="align-right">
+					know<span>how</span>
+				</h2>
 				<div className="content">
 					<p>
 						In every project is necessary to <span>listen</span> what people are saying and <span>ask</span>the
@@ -49,12 +61,14 @@ const IndexPage = (props) => {
 					</p>
 				</div>
 			</section>
-			<div className="imgWrapper">
+			<section className="imgWrapper">
 				<Img fluid={props.data.intersection.childImageSharp.fluid} />
-			</div>
+			</section>
 
 			<section className="toolkit">
-				<h2>toolkit</h2>
+				<h2>
+					tool<span>kit</span>
+				</h2>
 				<div className="content">
 					<p>
 						I have always tried to begin following a <span>content first</span> approach, so after the
@@ -73,9 +87,65 @@ const IndexPage = (props) => {
 					</p>
 				</div>
 			</section>
-			<div className="imgWrapper">
+			<section className="imgWrapper">
 				<Img fluid={props.data.cycle.childImageSharp.fluid} />
-			</div>
+			</section>
+			<section className="history">
+				<h2 className="align-right">
+					<span>hi</span>story
+				</h2>
+				<div class="entries">
+					<div class="entry">
+						<div class="title big">present</div>
+						<div class="body">
+							<p>
+								Product Designer
+								<p>PAX Italia</p>
+							</p>
+						</div>
+					</div>
+					<div class="entry">
+						<div class="title">2018</div>
+						<div class="body">
+							<p>
+								UX Designer <p>PAX Italia</p>
+							</p>
+						</div>
+					</div>
+					<div class="entry">
+						<div class="title">2016</div>
+						<div class="body">
+							<p>
+								Fullstack Designer <p>Digital Entity - NTTDATA</p>
+							</p>
+						</div>
+					</div>
+					<div class="entry">
+						<div class="title">2013</div>
+						<div class="body">
+							<p>
+								Frontend Developer <p>Digital Entity - NTTDATA</p>
+							</p>
+						</div>
+					</div>
+					<div class="entry">
+						<div class="title">2012</div>
+						<div class="body">
+							<p>
+								Owner <p>Skillybiz.com</p>
+							</p>
+						</div>
+					</div>
+					<div class="entry">
+						<div class="title">2009</div>
+						<div class="body">
+							<p>
+								Web Designer <p>Freelance</p>
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
 		</Layout>
 	);
 };
