@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
 import Head from '../components/head';
 import Img from 'gatsby-image';
@@ -12,6 +12,39 @@ const IndexPage = (props) => {
 			Solving <br />problems <br />with design
 		</React.Fragment>
 	);
+
+	const history = [
+		{
+			year: 'present',
+			role: 'Product Designer',
+			company: 'PAX Italia'
+		},
+		{
+			year: '2018',
+			role: 'UX Designer',
+			company: 'PAX Italia'
+		},
+		{
+			year: '2016',
+			role: 'Fullstack Designer',
+			company: 'Digital Entity - NTTDATA'
+		},
+		{
+			year: '2013',
+			role: 'Frontend Developer',
+			company: 'Digital Entity - NTTDATA'
+		},
+		{
+			year: '2012',
+			role: 'Owner',
+			company: 'skillybiz.com'
+		},
+		{
+			year: '2009',
+			role: 'Web Designer',
+			company: 'Freelance'
+		}
+	];
 
 	return (
 		<Layout>
@@ -50,9 +83,9 @@ const IndexPage = (props) => {
 				</h2>
 				<div className="content">
 					<p>
-						In every project is necessary to <span>listen</span> what people are saying and <span>ask</span>the
-						right questions. On <span>UX</span> side, I'm fluent with most areas that the field offers, i
-						love <span>minimal UI</span> and clean <span>typography</span>. Thanks to my experience as
+						In every project is necessary to <span>listen</span> what people are saying and <span>ask</span>{' '}
+						the right questions. On <span>UX</span> side, I'm fluent with most areas that the field offers,
+						i love <span>minimal UI</span> and clean <span>typography</span>. Thanks to my experience as
 						<span>dev</span> and <span>creative</span>, i can understand both creation sides of a digital
 						product always keeping an eye on <span>business</span> and <span>costs</span> specifics. In the
 						small projects, i can <span>lead</span> all the entire process without losing myself, with the
@@ -94,57 +127,41 @@ const IndexPage = (props) => {
 				<h2 className="align-right">
 					<span>hi</span>story
 				</h2>
-				<div class="entries">
-					<div class="entry">
-						<div class="title big">present</div>
-						<div class="body">
-							<p>
-								Product Designer
-								<p>PAX Italia</p>
-							</p>
-						</div>
-					</div>
-					<div class="entry">
-						<div class="title">2018</div>
-						<div class="body">
-							<p>
-								UX Designer <p>PAX Italia</p>
-							</p>
-						</div>
-					</div>
-					<div class="entry">
-						<div class="title">2016</div>
-						<div class="body">
-							<p>
-								Fullstack Designer <p>Digital Entity - NTTDATA</p>
-							</p>
-						</div>
-					</div>
-					<div class="entry">
-						<div class="title">2013</div>
-						<div class="body">
-							<p>
-								Frontend Developer <p>Digital Entity - NTTDATA</p>
-							</p>
-						</div>
-					</div>
-					<div class="entry">
-						<div class="title">2012</div>
-						<div class="body">
-							<p>
-								Owner <p>Skillybiz.com</p>
-							</p>
-						</div>
-					</div>
-					<div class="entry">
-						<div class="title">2009</div>
-						<div class="body">
-							<p>
-								Web Designer <p>Freelance</p>
-							</p>
-						</div>
-					</div>
+				<div className="entries">
+					{history.map((job, index) => {
+						return (
+							<div key={index} className="entry">
+								<div className="title">{job.year}</div>
+								<div className="body">
+									<p>
+										{job.role}
+										<p>{job.company}</p>
+									</p>
+								</div>
+							</div>
+						);
+					})}
 				</div>
+			</section>
+
+			<section className="lastworks">
+				<h2>
+					last<span>works</span>
+				</h2>
+
+				<ul>
+					{props.data.works.edges.map((edge, index) => {
+						return (
+							<li>
+								<div className="placeholder">&#10230;</div>
+								<div className="hover-title">{edge.node.title}</div>
+								<div className="hover-image">
+									<img src={edge.node.featuredImage.file.url} alt="" />
+								</div>
+							</li>
+						);
+					})}
+				</ul>
 			</section>
 		</Layout>
 	);
@@ -154,6 +171,31 @@ export default IndexPage;
 
 export const query = graphql`
 	query {
+		works: allContentfulProject {
+			edges {
+				node {
+					title
+					slug
+					description
+					descriptionLong {
+						descriptionLong
+					}
+					body {
+						body
+					}
+					featuredImage {
+						file {
+							url
+						}
+					}
+					gallery {
+						file {
+							url
+						}
+					}
+				}
+			}
+		}
 		intersection: file(relativePath: { eq: "intersection.png" }) {
 			childImageSharp {
 				fluid(maxWidth: 1000) {

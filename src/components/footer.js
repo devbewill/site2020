@@ -1,8 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-
-const StyledFooter = styled.footer`padding: 1rem;`;
+import { StyledFooter } from '../styles/styledComponent';
 
 const Footer = () => {
 	const data = useStaticQuery(graphql`

@@ -14,9 +14,7 @@ const StyledLayout = styled.div`
 	mask-repeat: no-repeat;
 	mask-position: right; 
 	background: #560c84; */
-	background: #fafafa;
 	min-height: 100vh;
-	color: #222;
 `;
 
 const Layout = (props) => {

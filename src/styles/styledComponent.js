@@ -12,6 +12,12 @@ export const Container = styled.div`
 	flex-grow: 1;
 `;
 
+export const StyledFooter = styled.footer`
+	background: #ffdff1;
+	padding: 1em;
+	min-height: 10em;
+`;
+
 // export const SectionTitle = styled.h1`
 // 	position: fixed;
 // 	top: 30%;
