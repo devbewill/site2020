@@ -21,7 +21,7 @@ h2 {
 		Helvetica Neue, sans-serif;
 	font-size: 5rem;
 	font-weight: 900;
-	padding: 0 0.5em;
+	padding: 0;
 
 	span {
 		color: $primary;
@@ -45,7 +45,7 @@ p {
 
 	h2 {
 		font-size: 3rem;
-		padding: 0 0.1em;
+		padding: 0;
 	}
 
 	p {
@@ -57,11 +57,6 @@ p {
 
 .knowhow,
 .toolkit {
-	// margin: 5em auto;
-	// max-width: 70vw;
-	// @media only screen and (max-width: 600px) {
-	// 	margin: 1em 0;
-	// }
 	p span {
 		padding: 0 5px;
 		line-height: 1.1;
@@ -69,31 +64,4 @@ p {
 		display: inline-block;
 		color: #fff;
 	}
-}
-
-// .content {
-// 	max-width: 70vw;
-// 	margin: 0 auto;
-// 	// column-count: 2;
-// 	// column-gap: 10vw;
-// 	font-weight: 300;
-
-// 	@media only screen and (max-width: 600px) {
-// 		column-count: 1;
-// 		max-width: 90vw;
-// 	}
-
-// }
-
-.imgWrapper {
-	// background: $primary;
-	// margin: 0 auto;
-	// padding: 5vw 10vw;
-	// @media only screen and (max-width: 600px) {
-	// 	padding: 5vw 3vw;
-	// }
-
-	// img {
-	// 	margin: 0 auto;
-	// }
 }

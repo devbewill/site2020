@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
+import Theme from '../styles/Theme';
 import Head from '../components/head';
 import Layout from '../components/layout';
 import Pagetitle from '../components/pagetitle';
@@ -45,23 +46,25 @@ const BlogPage = () => {
 	`);
 
 	return (
-		<Layout>
-			<Head title="Words" />
-			<Pagetitle title="Words" description="some description" />
+		<Theme>
+			<Layout>
+				<Head title="Words" />
+				<Pagetitle title="Words" description="some description" />
 
-			<PostList>
-				{data.allContentfulBlogPost.edges.map((edge, index) => {
-					return (
-						<SinglePost key={index}>
-							<Link to={`/blog/${edge.node.slug}`}>
-								<span>{edge.node.publishedDate}</span>
-								<h2>{edge.node.title}</h2>
-							</Link>
-						</SinglePost>
-					);
-				})}
-			</PostList>
-		</Layout>
+				<PostList>
+					{data.allContentfulBlogPost.edges.map((edge, index) => {
+						return (
+							<SinglePost key={index}>
+								<Link to={`/blog/${edge.node.slug}`}>
+									<span>{edge.node.publishedDate}</span>
+									<h2>{edge.node.title}</h2>
+								</Link>
+							</SinglePost>
+						);
+					})}
+				</PostList>
+			</Layout>
+		</Theme>
 	);
 };
 

@@ -16,11 +16,9 @@ const Intro = () => {
 		}
 
 		.underline {
-			background-image: linear-gradient(${(props) => props.theme.colors.primary});
-			background-repeat: no-repeat;
-			background-position-x: calc(100% + 1px);
-			background-position-y: calc(100% - 20px);
-			background-size: 100% 0.2em;
+			display: inline-block;
+			border-bottom: 0.2em solid ${(props) => props.theme.colors.primary};
+			line-height: 0.5;
 		}
 
 		@media only screen and (max-width: 600px) {

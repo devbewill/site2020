@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import Theme from '../styles/Theme';
+import { Container, ImageWrapper } from '../styles/styledComponent';
 import Layout from '../components/layout';
 import Head from '../components/head';
 import Intro from '../components/intro';
 import Timeline from '../components/timeline';
 import Quote from '../components/quote';
-import Img from 'gatsby-image';
-import Theme from '../styles/Theme';
-import { Container } from '../styles/styledComponent';
 import LastWorks from '../components/lastWorks';
-import ImgWrapper from '../components/imgWrapper';
 
 const IndexPage = (props) => {
 	return (
@@ -38,9 +37,9 @@ const IndexPage = (props) => {
 							methodology cooperating closely with the whole <span>team</span>.
 						</p>
 					</section>
-					<ImgWrapper>
+					<ImageWrapper sidePadding="15vw">
 						<Img fluid={props.data.intersection.childImageSharp.fluid} />
-					</ImgWrapper>
+					</ImageWrapper>
 					<section className="toolkit">
 						<h2>
 							tool<span>kit</span>
@@ -66,9 +65,9 @@ const IndexPage = (props) => {
 							</p>
 						</div>
 					</section>
-					<ImgWrapper>
+					<ImageWrapper>
 						<Img fluid={props.data.cycle.childImageSharp.fluid} />
-					</ImgWrapper>
+					</ImageWrapper>
 					<LastWorks />
 
 					<Timeline />

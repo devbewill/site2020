@@ -15,3 +15,16 @@ export const Container = styled.div`
 		max-width: ${(props) => (props.fullwidth ? 'none' : '90vw')};
 	}
 `;
+
+export const ImageWrapper = styled.div`
+	margin: 0 auto;
+	padding: 10vw ${(props) => props.sidePadding || '0'};
+
+	@media only screen and (max-width: 600px) {
+		padding: 5vw 3vw;
+	}
+
+	img {
+		margin: 0 auto;
+	}
+`;
