@@ -10,25 +10,8 @@ export const Container = styled.div`
 	justify-content: center;
 	max-width: ${(props) => (props.fullwidth ? 'none' : '80vw')};
 	flex-grow: 1;
-`;
 
-export const StyledFooter = styled.footer`
-	background: #ff0040;
-	color: #fff;
-	padding: 1em;
-	min-height: 10em;
+	@media only screen and (max-width: 600px) {
+		max-width: ${(props) => (props.fullwidth ? 'none' : '90vw')};
+	}
 `;
-
-// export const SectionTitle = styled.h1`
-// 	position: fixed;
-// 	top: 30%;
-// 	text-align: right;
-// 	padding: 0.5em 0.2em;
-// 	margin: 0;
-// 	line-height: 1.5;
-// 	font-size: 1rem;
-// 	font-weight: 800;
-// 	writing-mode: vertical-rl;
-// 	color: #fff;
-// 	background: #111;
-// `;

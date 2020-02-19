@@ -1,9 +1,14 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import { StyledFooter } from '../styles/styledComponent';
 
 const Footer = () => {
+	const StyledFooter = styled.footer`
+		background: ${(props) => props.theme.colors.primary};
+		color: #fff;
+		padding: 1em;
+		min-height: 10em;
+	`;
 	const data = useStaticQuery(graphql`
 		query {
 			site {
