@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import letterbg from '../images/letter_S.svg';
 
 const StyledLayout = styled.div`
+
+
 	/* background: #fafafa url(${letterbg}) no-repeat top right;
 	background-position: fixed;
 	background-size: auto 120vh;
@@ -15,6 +17,42 @@ const StyledLayout = styled.div`
 	mask-position: right; 
 	background: #560c84; */
 	min-height: 100vh;
+
+		&.dark {
+		color: #fff;
+		background: $primary;
+
+		h2 span {
+			color: $primary;
+		}
+
+		.pageTitle .underline {
+			background-image: linear-gradient($primary);
+		}
+
+		.quote {
+			background: $primary;
+		}
+
+		.history:before {
+			background-color: #fff;
+		}
+
+		.history .entries .entry .title:before { background: #fff}
+		.history .entries .entry:first-child .title:before {border-color: #fff}
+
+		.lastworks ul {
+			background: $primary;
+		}
+
+		.knowhow,
+		.toolkit,
+		.lastworks {
+			span {
+				background: $primary;
+			}
+		}
+	}
 `;
 
 const Layout = (props) => {

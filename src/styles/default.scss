@@ -1,18 +1,47 @@
-// $primary: #fbff62; //yellow
-// $primary: #62ffaa; //green
+$primary: #fbff62; //yellow
+$primary: #62ffaa; //green
 // $primary: #caafff; //purple
-// $primary: #ff0040; //red
-$primary: #ffdff1; //pink
+
+// $primary: #ffdff1; //pink
+// $primary: #e8b825; //senape
+// $primary: #419089; //petrolio
+// $primary: #8ca56d; //verde militare
+$primary: #ff0040; //red
+:root {
+	--backgroundColor: $primary;
+	--firstColor: #00d69c;
+	--secondColor: #c52afc;
+	--thirdColor: #ff1f00;
+	--fourthColor: #ffd600;
+	--dropShadowColor: rgba(0, 0, 0, .7);
+}
 
 // Commons
 
+@keyframes rotating {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes rotating-inverse {
+	from {
+		transform: rotate(360deg);
+	}
+	to {
+		transform: rotate(0deg);
+	}
+}
+
 body {
 	color: #222;
-	background: #fafafa;
+	background: #fff;
 }
 
 h1 {
-	padding-top: 40vh;
 	font-size: 4rem;
 	line-height: 1;
 	margin: 0;
@@ -22,6 +51,8 @@ h1 {
 }
 
 h2 {
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+		Helvetica Neue, sans-serif;
 	font-size: 5rem;
 	font-weight: 900;
 	padding: 0 0.5em;
@@ -55,7 +86,8 @@ p {
 	}
 
 	h2 {
-		font-size: 2.5rem;
+		font-size: 3rem;
+		padding: 0 0.1em;
 	}
 
 	p {
@@ -67,6 +99,62 @@ p {
 
 .pageTitle {
 	max-width: 70vw;
+
+	.infos {
+		font-size: 0.8rem;
+		display: block;
+		padding-top: 50vh;
+	}
+
+	.polygon {
+		position: absolute;
+		left: auto;
+		right: -10vw;
+		top: -20vw;
+		width: 42vw;
+		height: 42vw;
+		border: 4px solid $primary;
+		border-left-color: #222;
+		background: transparent;
+		animation: rotating 2s linear infinite;
+		margin: 6rem auto;
+	}
+
+	.blob {
+		margin: auto;
+		position: absolute;
+		right: -10vw;
+		top: 5vh;
+	}
+
+	svg {
+		transform-origin: 50% 50%;
+		animation: move 24s ease-in-out infinite;
+		fill: $primary;
+	}
+
+	@keyframes move {
+		0% {
+			transform: scale(1) translate(0, 0) rotate(0);
+			fill: var(--firstColor);
+		}
+		25% {
+			transform: scale(0.8) translate(5vw, 10vh) rotate(55deg);
+			fill: var(--secondColor);
+		}
+		50% {
+			transform: scale(0.6) translate(15vw, 5vh) rotate(180deg);
+			fill: var(--thirdColor);
+		}
+		75% {
+			transform: scale(0.8) translate(5vw, 10h) rotate(55deg);
+			fill: var(--fourthColor);
+		}
+		100% {
+			transform: scale(1) translate(0, 0) rotate(0);
+			fill: var(--firstColor);
+		}
+	}
 
 	p {
 		margin-top: 0.5em;
@@ -82,7 +170,7 @@ p {
 
 	@media only screen and (max-width: 600px) {
 		h1 {
-			font-size: 3rem;
+			font-size: 2.3rem;
 		}
 
 		h2 {
@@ -96,17 +184,32 @@ p {
 }
 
 .quote {
+	// background: $primary;
+	margin-top: 5em;
+	padding: 2em 1em;
+	color: #222;
+
 	p {
-		border-left: 0.5em solid $primary;
-		font-family: 'EB Garamnd';
-		font-size: 1.7rem;
+		border-left: 0.2em solid $primary;
+		font-family: 'Playfair Display';
+		font-size: 2rem;
+		line-height: 1.2;
 		padding: 1em;
+		font-weight: 900;
+		margin: 0;
+
+		@media only screen and (max-width: 600px) {
+			font-size: 1.5rem;
+		}
 
 		span {
+			font-weight: 300;
+			font-family: 'Muli';
 			background: none;
 			display: block;
 			font-size: 1rem;
-			margin-top: 1em;
+			margin-top: 2em;
+			color: #222;
 		}
 	}
 }
@@ -114,6 +217,9 @@ p {
 .toolkit,
 .lastworks {
 	margin: 5em 0;
+	@media only screen and (max-width: 600px) {
+		margin: 1em 0;
+	}
 }
 
 .content {
@@ -133,13 +239,17 @@ p {
 		line-height: 1.2;
 		background: $primary;
 		display: inline-block;
+		color: #fff;
 	}
 }
 
 .imgWrapper {
-	background: $primary;
+	// background: $primary;
 	margin: 0 auto;
 	padding: 5vw 20vw;
+	@media only screen and (max-width: 600px) {
+		padding: 5vw 3vw;
+	}
 
 	img {
 		margin: 0 auto;
@@ -174,7 +284,7 @@ p {
 		.entry {
 			width: 80%;
 			float: right;
-			padding: 80px 20px;
+			padding: 30px 20px;
 			clear: both;
 			text-align: left;
 			&:not(:first-child) {
@@ -206,7 +316,7 @@ p {
 					width: 25px;
 					height: 25px;
 					border: 4px solid $primary;
-					background-color: #000;
+					background-color: #fff;
 					border-radius: 100%;
 					top: 2em;
 					transform: translateY(-50%);
@@ -220,10 +330,11 @@ p {
 			}
 			.body {
 				p {
-					font-size: 1.2rem;
+					font-size: 1rem;
 					font-weight: 800;
 
-					p {
+					span {
+						display: block;
 						font-size: 0.9rem;
 						font-weight: 300;
 						line-height: 0.9;
@@ -253,12 +364,16 @@ p {
 	position: relative;
 	min-height: 100vh;
 	ul {
-		background: $primary;
+		// background: $primary;
 		margin: 0;
-		padding: 4em 2em;
+		padding: 6em 2em;
 		list-style-type: none;
 		display: flex;
 		flex-direction: column;
+
+		@media only screen and (max-width: 600px) {
+			padding: 2em 1em;
+		}
 
 		li {
 			display: block;
@@ -276,6 +391,8 @@ p {
 		}
 	}
 	.hover-title {
+		font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+			Droid Sans, Helvetica Neue, sans-serif;
 		text-align: right;
 		position: relative;
 		text-transform: uppercase;
@@ -287,10 +404,15 @@ p {
 		cursor: pointer;
 		transition: all 0.3s ease-in;
 		z-index: 3;
-		color: #fff;
+		color: $primary;
 
 		&:hover {
 			color: #222;
+		}
+
+		@media only screen and (max-width: 600px) {
+			font-size: 2.3rem;
+			letter-spacing: -3px;
 		}
 	}
 

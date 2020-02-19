@@ -6,8 +6,11 @@ const Navbar = styled.header`
 	width: 100%;
 	position: fixed;
 	display: flex;
-	padding: 2rem 2rem 2rem;
+	padding: 2rem 1em 1rem;
 	top: 0;
+	@media only screen and (max-width: 600px) {
+		padding: 2rem 0 1rem;
+	}
 `;
 
 const NavList = styled.ul`
@@ -18,11 +21,19 @@ const NavList = styled.ul`
 	margin: 0;
 
 	li:first-child {
-		font-weight: 800;
 		flex: auto;
 
 		a {
-			font-weight: 800;
+			color: #fe003f;
+			font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+				Droid Sans, Helvetica Neue, sans-serif;
+			font-weight: 900;
+			letter-spacing: -3px;
+			font-size: 2rem;
+			display: inline-block;
+			/* transform: rotate(90deg);
+			transform-origin: left top 0; */
+			/* animation: rotating 5s linear infinite; */
 
 			&.active {
 				padding-bottom: 0;
@@ -39,6 +50,15 @@ const NavList = styled.ul`
 		&.active {
 			padding-bottom: 0.1rem;
 			border-bottom: 1px solid #fff;
+		}
+	}
+
+	@keyframes rotating {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
 		}
 	}
 `;
@@ -58,7 +78,7 @@ const Header = () => {
 			<NavList>
 				<li>
 					<Link to="/" activeClassName="active">
-						stefanoperelli
+						SP
 					</Link>
 				</li>
 				{/* <li>
