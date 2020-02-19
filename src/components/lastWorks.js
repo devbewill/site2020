@@ -59,44 +59,60 @@ const LastWorks = () => {
 				}
 			}
 		}
-		.hover-title {
-			font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
-				Droid Sans, Helvetica Neue, sans-serif;
+		.hover-box {
 			text-align: right;
 			position: relative;
-			text-transform: uppercase;
-			font-size: 3.5rem;
-			letter-spacing: -5px;
-			font-weight: 900;
-			line-height: 0.6;
-			pointer-events: auto;
-			cursor: pointer;
-			transition: all 0.3s linear;
 			z-index: 3;
 
+			.title {
+				font-family: BlinkMacSystemFont, sans-serif;
+				margin: 0;
+				padding-bottom: 10px;
+				text-transform: uppercase;
+				font-size: 3.5rem;
+				letter-spacing: -5px;
+				font-weight: 900;
+				line-height: 0.6;
+				pointer-events: auto;
+				cursor: pointer;
+				transition: all 0.3s linear;
+
+				@media only screen and (max-width: 600px) {
+					font-size: 2.1rem;
+					letter-spacing: -3px;
+					line-height: 0.8;
+				}
+			}
+
+			.description {
+				opacity: 0;
+				padding-left: 30vw;
+				transition: all 0.3s linear;
+				line-height: 1.2;
+				height: 0;
+			}
+
 			&:hover {
-				color: ${(props) => props.theme.colors.primary};
-			}
+				.title {
+					color: ${(props) => props.theme.colors.primary};
+				}
 
-			@media only screen and (max-width: 600px) {
-				font-size: 2.1rem;
-				letter-spacing: -3px;
-				line-height: 0.8;
+				.description {
+					opacity: 1;
+					height: 2em;
+				}
 			}
 		}
 
-		.hover-image {
-			opacity: 0;
-			z-index: 2;
-		}
-
-		.hover-title:hover + .hover-image {
+		.hover-box:hover + .hover-image {
 			opacity: 1;
 			pointer-events: none;
 		}
 
 		.hover-image {
 			position: absolute;
+			opacity: 0;
+			z-index: 2;
 			top: 5vw;
 			left: -20vw;
 			bottom: 0;
@@ -124,7 +140,10 @@ const LastWorks = () => {
 				{data.allContentfulProject.edges.map((edge, index) => {
 					return (
 						<li key={index}>
-							<div className="hover-title">{edge.node.title}</div>
+							<div className="hover-box">
+								<div className="title">{edge.node.title}</div>
+								<div className="description">{edge.node.description}</div>
+							</div>
 							<div className="hover-image">
 								<img src={edge.node.featuredImage.file.url} alt="" />
 							</div>

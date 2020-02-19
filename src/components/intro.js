@@ -3,12 +3,16 @@ import styled from 'styled-components';
 
 const Intro = () => {
 	const IntroSection = styled.section`
-		max-width: 70vw;
+		padding-top: 50vh;
 
 		.infos {
+			position: fixed;
+			left: 1em;
+			top: 80vh;
+			transform: rotate(-90deg);
+			transform-origin: left top 0;
 			font-size: 0.8rem;
 			display: block;
-			padding-top: 50vh;
 		}
 
 		p {
@@ -48,7 +52,7 @@ const Intro = () => {
 		<IntroSection>
 			<span className="infos">Stefano Perelli __ Product Designer</span>
 			<h1>
-				Solving<br /> problems <br />with <span className="underline">design</span>
+				Solving<br /> problems <br />with <span className="underline">design </span> 😎
 			</h1>
 		</IntroSection>
 	);

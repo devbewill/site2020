@@ -24,16 +24,12 @@ const NavList = styled.ul`
 		flex: auto;
 
 		a {
-			color: #fe003f;
-			font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
-				Droid Sans, Helvetica Neue, sans-serif;
+			color: ${(props) => props.theme.colors.primary};
+			font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 			font-weight: 900;
-			letter-spacing: -3px;
+			letter-spacing: -2px;
 			font-size: 2rem;
 			display: inline-block;
-			/* transform: rotate(90deg);
-			transform-origin: left top 0; */
-			/* animation: rotating 5s linear infinite; */
 
 			&.active {
 				padding-bottom: 0;
@@ -47,18 +43,10 @@ const NavList = styled.ul`
 		margin: 0 1rem;
 		color: #222;
 		font-weight: 300;
+
 		&.active {
 			padding-bottom: 0.1rem;
 			border-bottom: 1px solid #fff;
-		}
-	}
-
-	@keyframes rotating {
-		from {
-			transform: rotate(0deg);
-		}
-		to {
-			transform: rotate(360deg);
 		}
 	}
 `;
