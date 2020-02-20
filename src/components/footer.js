@@ -4,22 +4,29 @@ import styled from 'styled-components';
 
 const Footer = () => {
 	const StyledFooter = styled.footer`
-		border-top: 0.3em solid ${(props) => props.theme.colors.primary};
+		background: ${(props) => props.theme.colors.primary};
 		margin: 30vh auto 0 auto;
-		padding: 1em;
-		max-width: 80vw;
+		padding: 3em 20vw 1em 20vw;
+		color: #fff;
+
+		h2 {
+			font-size: 2.5rem;
+			line-height: 1;
+		}
 
 		ul {
-			margin-top: 10vh;
+			margin: 0;
+			margin-top: 1em;
 			list-style-type: none;
-			font-weight: 600;
+			font-weight: 300;
+			font-size: 2rem;
 
 			li {
 				display: inline-block;
 				padding: 0.1em;
 
 				&:nth-child(-n + 2):after {
-					content: ",";
+					content: " /";
 				}
 
 				a {
@@ -28,10 +35,17 @@ const Footer = () => {
 					transition: all 0.3s linear;
 
 					&:hover {
-						color: ${(props) => props.theme.colors.primary};
+						color: #222;
 					}
 				}
 			}
+		}
+
+		.credits {
+			margin: 0;
+
+			font-size: 1rem;
+			padding-top: 4em;
 		}
 	`;
 	const data = useStaticQuery(graphql`
@@ -47,6 +61,9 @@ const Footer = () => {
 
 	return (
 		<StyledFooter>
+			<h2>
+				Hey!<br />I'm always up for new challenge 💪
+			</h2>
 			<ul className="contatcs">
 				<li>
 					<a href="https://www.linkedin.com/in/stefanoperelli/" target="_blank">
@@ -64,8 +81,10 @@ const Footer = () => {
 					</a>
 				</li>
 			</ul>
-			👋
-			{data.site.siteMetadata.title} - footer component - made in Milano by {data.site.siteMetadata.author}
+
+			<p class="credits">
+				{data.site.siteMetadata.title} <br />
+			</p>
 		</StyledFooter>
 	);
 };

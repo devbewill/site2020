@@ -95,5 +95,12 @@ export const query = graphql`
 				}
 			}
 		}
+		avatar: file(relativePath: { eq: "steperelli.jpeg" }) {
+			childImageSharp {
+				fluid(maxWidth: 500) {
+					...GatsbyImageSharpFluid
+				}
+			}
+		}
 	}
 `;

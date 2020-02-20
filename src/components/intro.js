@@ -1,13 +1,27 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-const Intro = () => {
+const Intro = (props) => {
+	const data = useStaticQuery(graphql`
+		query {
+			avatar: file(relativePath: { eq: "steperelli.jpeg" }) {
+				childImageSharp {
+					fluid(grayscale: true, maxWidth: 600, maxHeight: 600, cropFocus: CENTER, toFormat: PNG) {
+						...GatsbyImageSharpFluid
+					}
+				}
+			}
+		}
+	`);
+
 	const IntroSection = styled.section`
 		padding-top: 50vh;
 
 		.infos {
 			position: fixed;
-			left: 1em;
+			left: 0.5em;
 			top: 80vh;
 			transform: rotate(-90deg);
 			transform-origin: left top 0;
@@ -15,7 +29,15 @@ const Intro = () => {
 			display: block;
 		}
 
+		.avatar {
+			position: absolute;
+			right: 0;
+			top: 25vh;
+			width: 20vw;
+		}
+
 		p {
+			max-width: 60vw;
 			margin-top: 0.5em;
 		}
 
@@ -52,8 +74,13 @@ const Intro = () => {
 		<IntroSection>
 			<span className="infos">Stefano Perelli __ Product Designer</span>
 			<h1>
-				Solving<br /> problems <br />with <span className="underline">design </span> 😎
+				Solving<br /> problems <br />with <span className="underline">design </span>
 			</h1>
+			<p>
+				I love figuring out digital solutions to complex challenges and simplifying it to make a positive
+				impact.
+			</p>
+			<div className="avatar">{/* <Img fluid={data.avatar.childImageSharp.fluid} /> */}</div>
 		</IntroSection>
 	);
 };

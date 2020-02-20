@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 
 const LastWorks = () => {
