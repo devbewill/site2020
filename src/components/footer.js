@@ -11,6 +11,7 @@ const Footer = () => {
 
 		h2 {
 			font-size: 2.5rem;
+			font-weight: 800;
 			line-height: 1;
 		}
 
@@ -66,23 +67,23 @@ const Footer = () => {
 			</h2>
 			<ul className="contatcs">
 				<li>
-					<a href="https://www.linkedin.com/in/stefanoperelli/" target="_blank">
+					<a href="https://www.linkedin.com/in/stefanoperelli/" target="_blank" rel="noopener noreferrer">
 						Linkedin
 					</a>
 				</li>
 				<li>
-					<a href="https://www.instagram.com/ste.esse" target="_blank">
+					<a href="https://www.instagram.com/ste.esse" target="_blank" rel="noopener noreferrer">
 						Instagram
 					</a>
 				</li>
 				<li>
-					<a href="mailto:sedprc@gmail.com" target="_blank">
+					<a href="mailto:sedprc@gmail.com" target="_blank" rel="noopener noreferrer">
 						Mail
 					</a>
 				</li>
 			</ul>
 
-			<p class="credits">
+			<p className="credits">
 				{data.site.siteMetadata.title} <br />
 			</p>
 		</StyledFooter>

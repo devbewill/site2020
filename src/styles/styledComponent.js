@@ -12,7 +12,7 @@ export const Container = styled.div`
 	flex-grow: 1;
 
 	@media only screen and (max-width: 600px) {
-		max-width: ${(props) => (props.fullwidth ? 'none' : '90vw')};
+		max-width: ${(props) => (props.fullwidth ? 'none' : '95vw')};
 	}
 `;
 

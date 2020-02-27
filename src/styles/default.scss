@@ -8,19 +8,21 @@ body {
 }
 
 h1 {
+	font-family: 'Oswald', sans-serif;
 	font-size: 4rem;
-	line-height: 1;
 	margin: 0;
-	/* color: #ff8300;
-		color: #560c84; */
 	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: -5px;
+	line-height: 0.9;
 }
 
 h2 {
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-		Helvetica Neue, sans-serif;
-	font-size: 5rem;
-	font-weight: 900;
+	// font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+	// 	Helvetica Neue, sans-serif;
+	font-size: 4rem;
+	letter-spacing: -3px;
+	font-weight: 300;
 	padding: 0;
 
 	span {
@@ -29,8 +31,8 @@ h2 {
 }
 
 p {
-	font-size: 1.2rem;
-	line-height: 1.5;
+	font-size: 1rem;
+	line-height: 1.4;
 	font-weight: 300;
 }
 
@@ -58,10 +60,12 @@ p {
 .knowhow,
 .toolkit {
 	p span {
-		padding: 0 5px;
-		line-height: 1.1;
-		background: $primary;
+		font-family: 'Oswald';
+		// padding: 0 5px;
+		// line-height: 1.1;
+		// background: $primary;
 		display: inline-block;
-		color: #fff;
+		font-weight: 400;
+		// color: #fff;
 	}
 }

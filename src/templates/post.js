@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import Theme from '../styles/Theme';
+import { Container, ImageWrapper } from '../styles/styledComponent';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Layout from '../components/layout';
 import TextContent from '../components/textContent';
@@ -10,18 +13,16 @@ export const query = graphql`
 			title
 			publishedDate(fromNow: true)
 			featuredImage {
-				fluid(maxWidth: 1200) {
+				fluid(maxWidth: 1000) {
 					...GatsbyContentfulFluid_withWebp
 				}
-			}
-			body {
-				json
 			}
 			bodyMd {
 				childMarkdownRemark {
 					html
 				}
 			}
+			tag
 		}
 	}
 `;
@@ -39,43 +40,49 @@ const Post = (props) => {
 
 	const title = props.data.contentfulBlogPost.title;
 	const publishedDate = props.data.contentfulBlogPost.publishedDate;
-	const bodyPost = documentToReactComponents(props.data.contentfulBlogPost.body.json, options);
 	const bodyMD = props.data.contentfulBlogPost.bodyMd.childMarkdownRemark.html;
 	const danger_dom = <div dangerouslySetInnerHTML={{ __html: bodyMD }} />;
+	const tags = props.data.contentfulBlogPost.tag;
 	const dom = <div>{danger_dom}</div>;
 
 	return (
-		<Layout>
-			{/* if != null (in some post the featured images isnt defined) */}
-			{props.data.contentfulBlogPost.featuredImage && (
-				<img src={props.data.contentfulBlogPost.featuredImage.fluid.src} alt="" />
-			)}
+		<Theme>
+			<Layout>
+				{props.data.contentfulBlogPost.featuredImage && (
+					<Img fluid={props.data.contentfulBlogPost.featuredImage.fluid} alt="" />
+				)}
+				<Container>
+					<h1>{title}</h1>
+					<div>{publishedDate}</div>
+					<ul>
+						{tags.map((tag, index) => {
+							return <li key={index}>{tag}</li>;
+						})}
+					</ul>
 
-			<h1>{title}</h1>
-			<div>{publishedDate}</div>
-			<div className="bodyPost">{bodyPost}</div>
+					<TextContent content={props.data.contentfulBlogPost.bodyMd.childMarkdownRemark.html} />
 
-			<TextContent content={props.data.contentfulBlogPost.bodyMd.childMarkdownRemark.html} />
-
-			<nav>
-				<ul>
-					<li>
-						{props.pageContext.previous && (
-							<Link to={`/blog/${props.pageContext.previous.slug}`} rel="prev">
-								prev
-							</Link>
-						)}
-					</li>
-					<li>
-						{props.pageContext.next && (
-							<Link to={`/blog/${props.pageContext.next.slug}`} rel="next">
-								next
-							</Link>
-						)}
-					</li>
-				</ul>
-			</nav>
-		</Layout>
+					<nav>
+						<ul>
+							<li>
+								{props.pageContext.previous && (
+									<Link to={`/blog/${props.pageContext.previous.slug}`} rel="prev">
+										prev
+									</Link>
+								)}
+							</li>
+							<li>
+								{props.pageContext.next && (
+									<Link to={`/blog/${props.pageContext.next.slug}`} rel="next">
+										next
+									</Link>
+								)}
+							</li>
+						</ul>
+					</nav>
+				</Container>
+			</Layout>
+		</Theme>
 	);
 };
 

@@ -65,14 +65,14 @@ const LastWorks = () => {
 			z-index: 3;
 
 			.title {
-				font-family: BlinkMacSystemFont, sans-serif;
+				font-family: 'Oswald', sans-serif;
 				margin: 0;
 				padding-bottom: 10px;
 				text-transform: uppercase;
-				font-size: 3.5rem;
+				font-size: 3rem;
 				letter-spacing: -5px;
 				font-weight: 900;
-				line-height: 0.6;
+				line-height: 0.3;
 				pointer-events: auto;
 				cursor: pointer;
 				transition: all 0.3s linear;
@@ -86,9 +86,12 @@ const LastWorks = () => {
 
 			.description {
 				opacity: 0;
-				padding-left: 30vw;
+				font-weight: 300;
+				padding-top: 0.7em;
+				margin-right: 0;
+				margin-left: 35vw;
 				transition: all 0.3s linear;
-				line-height: 1.2;
+				line-height: 1;
 				height: 0;
 			}
 
@@ -99,7 +102,7 @@ const LastWorks = () => {
 
 				.description {
 					opacity: 1;
-					height: 2em;
+					height: 5em;
 				}
 			}
 		}

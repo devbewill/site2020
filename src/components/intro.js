@@ -17,7 +17,7 @@ const Intro = (props) => {
 	`);
 
 	const IntroSection = styled.section`
-		padding-top: 50vh;
+		padding-top: 45vh;
 
 		.infos {
 			position: fixed;
@@ -25,7 +25,7 @@ const Intro = (props) => {
 			top: 80vh;
 			transform: rotate(-90deg);
 			transform-origin: left top 0;
-			font-size: 0.8rem;
+			font-size: 0.7rem;
 			display: block;
 		}
 
@@ -43,7 +43,8 @@ const Intro = (props) => {
 
 		.underline {
 			display: inline-block;
-			border-bottom: 0.2em solid ${(props) => props.theme.colors.primary};
+			color: ${(props) => props.theme.colors.primary};
+			/* border-bottom: 0.2em solid ${(props) => props.theme.colors.primary}; */
 			line-height: 0.5;
 		}
 

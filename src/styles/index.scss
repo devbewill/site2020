@@ -613,17 +613,19 @@ pre tt:after {
 }
 
 html {
-	font-size: calc(1em + 1vw);
+	font-size: calc(0.8em + 1vw);
 }
 
 body {
 	font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, sans-serif;
 	text-rendering: optimizeLegibility;
-	font-family: 'Muli', sans-serif;
+	// font-family: 'Muli', sans-serif;
+	// font-family: 'Impact';
 }
 
 p {
 	font-size: 1rem;
+	// font-family: 'Muli';
 }
 
 @media only screen and (max-width: 480px) {
@@ -632,8 +634,8 @@ p {
 	}
 }
 
-@media screen and (min-width: 50em) {
-	html {
-		font-size: 1.5em;
-	}
-}
+// @media screen and (min-width: 50em) {
+// 	html {
+// 		font-size: 1.em;
+// 	}
+// }

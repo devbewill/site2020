@@ -6,7 +6,7 @@ const Navbar = styled.header`
 	width: 100%;
 	position: fixed;
 	display: flex;
-	padding: 2rem 1em 1rem;
+	padding: 1em;
 	top: 0;
 	@media only screen and (max-width: 600px) {
 		padding: 2rem 0 1rem;
@@ -20,6 +20,10 @@ const NavList = styled.ul`
 	display: flex;
 	margin: 0;
 
+	li {
+		margin: 0;
+	}
+
 	li:first-child {
 		flex: auto;
 
@@ -30,6 +34,7 @@ const NavList = styled.ul`
 			letter-spacing: -2px;
 			font-size: 2rem;
 			display: inline-block;
+			margin-lefT: 0.7rem;
 
 			&.active {
 				padding-bottom: 0;
@@ -40,13 +45,14 @@ const NavList = styled.ul`
 
 	a {
 		text-decoration: none;
-		margin: 0 1rem;
+		font-size: 0.6rem;
+		margin: 0 0.7rem 0 0;
 		color: #222;
-		font-weight: 300;
+		font-weight: 700;
+		text-transform: uppercase;
 
 		&.active {
-			padding-bottom: 0.1rem;
-			border-bottom: 1px solid #fff;
+			border-bottom: 3px solid ${(props) => props.theme.colors.primary};
 		}
 	}
 `;
