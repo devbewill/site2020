@@ -44,7 +44,7 @@ const Timeline = () => {
 			content: '';
 			position: absolute;
 			top: 0px;
-			left: 15vw;
+			left: 5vw;
 			bottom: 0px;
 			width: 4px;
 			background-color: #000;
@@ -58,10 +58,13 @@ const Timeline = () => {
 			margin: auto;
 			position: relative;
 			left: -5px;
-			overflow: hidden;
+
+			@media only screen and (min-width: 700px) {
+				overflow: hidden;
+			}
 
 			.entry {
-				width: 80%;
+				width: 100%;
 				float: right;
 				padding: 30px 20px;
 				clear: both;
@@ -99,7 +102,7 @@ const Timeline = () => {
 						border-radius: 100%;
 						top: 2em;
 						transform: translateY(-50%);
-						right: calc(100% + 44px);
+						right: calc(100% + 22px);
 						z-index: 1000;
 
 						@media only screen and (min-width: 700px) {

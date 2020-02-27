@@ -80,11 +80,11 @@ const Header = () => {
 						About
 					</Link>
 				</li> */}
-				<li>
+				{/* <li>
 					<Link to="/portfolio" activeClassName="active">
 						works
 					</Link>
-				</li>
+				</li> */}
 				<li>
 					<Link to="/blog" activeClassName="active">
 						words

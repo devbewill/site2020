@@ -20,13 +20,12 @@ const IndexPage = (props) => {
 					<Intro />
 
 					<Quote />
-					<PostsList />
 					<section className="knowhow">
 						<h2 className="align-right">
 							know<span>how</span>
 						</h2>
 
-						<p style={{ columnCount: 2, columnGap: '4em' }}>
+						<p>
 							In every project is necessary to <span>listen</span> what people are saying and{' '}
 							<span>ask</span> the right questions. On <span>UX</span> side, I'm fluent with most areas
 							that the field offers, i love <span>minimal UI</span> and clean <span>typography</span>.
@@ -46,7 +45,7 @@ const IndexPage = (props) => {
 							tool<span>kit</span>
 						</h2>
 						<div className="content">
-							<p style={{ columnCount: 2, columnGap: '4em' }}>
+							<p>
 								I have always tried to begin following a <span>content first</span> approach, so after
 								the contents have been clarified i open <span>Sketch</span> to give a primal shape to
 								the idea and to organize a sort of <span>mind map</span>. Once finally the idea has
@@ -67,9 +66,9 @@ const IndexPage = (props) => {
 					<ImageWrapper>
 						<Img fluid={props.data.cycle.childImageSharp.fluid} />
 					</ImageWrapper>
-					<LastWorks />
-
 					<Timeline />
+					<PostsList />
+					<LastWorks />
 				</Container>
 			</Layout>
 		</Theme>

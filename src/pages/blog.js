@@ -23,7 +23,7 @@ const Post = styled.div`
 	padding: 1.5em;
 	width: calc(50% - 1em);
 	min-height: 500px;
-	transition: all 0.4s ease-in-out;
+	transition: all 0.3s ease-in;
 
 	h2 {
 		font-family: 'Oswald';

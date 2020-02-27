@@ -59,6 +59,13 @@ p {
 
 .knowhow,
 .toolkit {
+	p {
+		column-count: 2;
+		column-gap: 4em;
+		@media only screen and (max-width: 600px) {
+			column-count: auto;
+		}
+	}
 	p span {
 		font-family: 'Oswald';
 		// padding: 0 5px;

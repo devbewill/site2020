@@ -40,10 +40,6 @@ const LastWorks = () => {
 			display: flex;
 			flex-direction: column;
 
-			@media only screen and (max-width: 600px) {
-				padding: 2em 1em;
-			}
-
 			li {
 				display: block;
 
@@ -76,12 +72,6 @@ const LastWorks = () => {
 				pointer-events: auto;
 				cursor: pointer;
 				transition: all 0.3s linear;
-
-				@media only screen and (max-width: 600px) {
-					font-size: 2.1rem;
-					letter-spacing: -3px;
-					line-height: 0.8;
-				}
 			}
 
 			.description {
@@ -130,6 +120,37 @@ const LastWorks = () => {
 			width: auto !important;
 			height: auto !important;
 			margin-bottom: 0;
+		}
+
+		@media only screen and (max-width: 600px) {
+			min-height: 0;
+			ul {
+				padding: 0;
+				li {
+					margin-bottom: 0;
+				}
+			}
+
+			.hover-box {
+				.title {
+					font-size: 2rem;
+					letter-spacing: -3px;
+					line-height: 0.8;
+				}
+				.description {
+					padding-top: 0;
+					margin-left: 0;
+				}
+				&:hover {
+					.description {
+						height: 4em;
+					}
+				}
+			}
+
+			.hover-image {
+				display: none;
+			}
 		}
 	`;
 

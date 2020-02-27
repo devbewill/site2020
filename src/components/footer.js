@@ -48,6 +48,19 @@ const Footer = () => {
 			font-size: 1rem;
 			padding-top: 4em;
 		}
+
+		@media only screen and (max-width: 600px) {
+			padding: 2em 1em;
+
+			h2 {
+				font-size: 2rem;
+				letter-spacing: -2px;
+			}
+
+			ul {
+				font-size: 1.3rem;
+			}
+		}
 	`;
 	const data = useStaticQuery(graphql`
 		query {

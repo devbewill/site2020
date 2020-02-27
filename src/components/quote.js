@@ -7,6 +7,10 @@ const Quote = () => {
 		padding: 2em 1em;
 		color: #222;
 
+		@media only screen and (max-width: 600px) {
+			margin-top: 0;
+		}
+
 		p {
 			border-left: 0.2em solid ${(props) => props.theme.colors.primary};
 			font-family: 'Playfair Display';

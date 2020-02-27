@@ -12,16 +12,16 @@ export const Container = styled.div`
 	flex-grow: 1;
 
 	@media only screen and (max-width: 600px) {
-		max-width: ${(props) => (props.fullwidth ? 'none' : '95vw')};
+		max-width: ${(props) => (props.fullwidth ? 'none' : '90vw')};
 	}
 `;
 
 export const ImageWrapper = styled.div`
 	margin: 0 auto;
-	padding: 10vw ${(props) => props.sidePadding || '0'};
+	padding: 5vw ${(props) => props.sidePadding || '0'};
 
 	@media only screen and (max-width: 600px) {
-		padding: 5vw 3vw;
+		padding: 0;
 	}
 
 	img {

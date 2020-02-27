@@ -16,7 +16,6 @@ const ExternalPost = ({ postProps }) => {
 		flex-flow: column;
 		padding: 0.5em;
 		width: calc(33% - 1em);
-		/* height: 300px; */
 		transition: all 0.3s linear;
 		text-decoration: none;
 		color: #111;
@@ -89,20 +88,51 @@ const ExternalPost = ({ postProps }) => {
 				color: #fff;
 			}
 		}
+
+		@media only screen and (max-width: 600px) {
+			width: 100%;
+			padding: 0;
+
+			h2 {
+				letter-spacing: -1px;
+			}
+
+			.by {
+				font-size: 0.8rem;
+			}
+		}
 	`;
+
+	// const ImgPost = styled.div`
+	// 	opacity: 0;
+	// 	top: -120px;
+	// 	right: -2vw;
+	// 	position: absolute;
+	// 	height: 150px;
+	// 	width: 200px;
+	// 	background: url(${(props) => props.background});
+	// 	background-position: center center;
+	// 	background-size: cover;
+	// 	transition: all 0.4s ease-in;
+	// 	border: 0.3em solid #fff;
+
+	// 	${StyledLink}:hover & {
+	// 		opacity: 1;
+	// 	}
+	// `;
 
 	const ImgPost = styled.div`
 		opacity: 0;
-		top: -120px;
-		right: -2vw;
-		position: absolute;
-		height: 150px;
-		width: 200px;
+		top: 10vh;
+		right: 0;
+		position: fixed;
+		height: 250px;
+		width: 350px;
 		background: url(${(props) => props.background});
 		background-position: center center;
 		background-size: cover;
 		transition: all 0.4s ease-in;
-		border: 0.3em solid #fff;
+		z-index: -1;
 
 		${StyledLink}:hover & {
 			opacity: 1;

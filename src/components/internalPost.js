@@ -65,6 +65,19 @@ const InternalPost = ({ postProps }) => {
 				color: #fff;
 			}
 		}
+
+		@media only screen and (max-width: 600px) {
+			width: 100%;
+			padding: 0;
+
+			h2 {
+				letter-spacing: -1px;
+			}
+
+			.by {
+				font-size: 0.8rem;
+			}
+		}
 	`;
 
 	const ImgPost = styled.div`

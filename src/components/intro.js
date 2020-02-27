@@ -22,7 +22,7 @@ const Intro = (props) => {
 		.infos {
 			position: fixed;
 			left: 0.5em;
-			top: 80vh;
+			top: 84vh;
 			transform: rotate(-90deg);
 			transform-origin: left top 0;
 			font-size: 0.7rem;
@@ -37,7 +37,7 @@ const Intro = (props) => {
 		}
 
 		p {
-			max-width: 60vw;
+			max-width: 45vw;
 			margin-top: 0.5em;
 		}
 
@@ -49,8 +49,10 @@ const Intro = (props) => {
 		}
 
 		@media only screen and (max-width: 600px) {
+			padding-top: 55vh;
 			h1 {
-				font-size: 2.3rem;
+				font-size: 3.5rem;
+				letter-spacing: -3px;
 			}
 
 			h2 {
@@ -58,11 +60,13 @@ const Intro = (props) => {
 			}
 
 			p {
-				font-size: inherit;
+				max-width:90vw;
 			}
 
 			.infos {
-				padding-top: 65vh;
+				padding-top: 0;
+				position: static;
+				font-size: 0.8rem;
 			}
 
 			.underline {
