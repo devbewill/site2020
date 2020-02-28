@@ -37,14 +37,14 @@ const Timeline = () => {
 
 	const TimelineSection = styled.section`
 		position: relative;
-		min-height: 100vh;
+		min-height: 80vh;
 		margin: 0;
 
 		&:before {
 			content: '';
 			position: absolute;
 			top: 0px;
-			left: 5vw;
+			left: 19px;
 			bottom: 0px;
 			width: 4px;
 			background-color: #000;

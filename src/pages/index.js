@@ -64,7 +64,7 @@ const IndexPage = (props) => {
 						</div>
 					</section>
 					<ImageWrapper>
-						<Img fluid={props.data.cycle.childImageSharp.fluid} />
+						<Img className="cycle" fluid={props.data.cycle.childImageSharp.fluid} />
 					</ImageWrapper>
 					<Timeline />
 					<PostsList />

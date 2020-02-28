@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const Intro = () => {
 	const IntroSection = styled.section`
 		padding-top: 45vh;
+		position: relative;
 
 		.infos {
 			position: fixed;
@@ -33,6 +34,7 @@ const Intro = () => {
 			/* border-bottom: 0.2em solid ${(props) => props.theme.colors.primary}; */
 			line-height: 0.5;
 		}
+
 
 		@media only screen and (max-width: 600px) {
 			padding-top: 55vh;
