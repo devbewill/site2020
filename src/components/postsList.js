@@ -5,9 +5,11 @@ import SinglePostInt from './singlePostInt';
 import SinglePostExt from './singlePostExt';
 
 const PostsSection = styled.section`
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	.postContainer {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
 `;
 
 export default () => (
@@ -40,36 +42,38 @@ export default () => (
 		`}
 		render={(data) => (
 			<React.Fragment>
-				<h2>
-					<span>in</span>sight
-				</h2>
 				<PostsSection>
-					{data.allContentfulBlogPost.edges.map((edge, index) => {
-						if (index < 9) {
-							let target, postProps;
-							edge.node.link ? (target = edge.node.link) : (target = `/blog/${edge.node.slug}`);
+					<h2>
+						<span>in</span>sight
+					</h2>
+					<div className="postContainer">
+						{data.allContentfulBlogPost.edges.map((edge, index) => {
+							if (index < 9) {
+								let target, postProps;
+								edge.node.link ? (target = edge.node.link) : (target = `/blog/${edge.node.slug}`);
 
-							postProps = {
-								slug: `/blog/${edge.node.slug}`,
-								imgPost: edge.node.featuredImage.fluid.src,
-								externalLink: edge.node.link,
-								tags: edge.node.tag,
-								title: edge.node.title,
-								body: edge.node.bodyMd.childMarkdownRemark.html,
-								date: edge.node.publishedDate,
-								excerpt: edge.node.bodyMd.childMarkdownRemark.excerpt,
-								target: target
-							};
+								postProps = {
+									slug: `/blog/${edge.node.slug}`,
+									imgPost: edge.node.featuredImage.fluid.src,
+									externalLink: edge.node.link,
+									tags: edge.node.tag,
+									title: edge.node.title,
+									body: edge.node.bodyMd.childMarkdownRemark.html,
+									date: edge.node.publishedDate,
+									excerpt: edge.node.bodyMd.childMarkdownRemark.excerpt,
+									target: target
+								};
 
-							return !postProps.externalLink ? (
-								<SinglePostInt key={index} postProps={postProps} />
-							) : (
-								<SinglePostExt key={index} postProps={postProps} />
-							);
-						} else {
-							return null;
-						}
-					})}
+								return !postProps.externalLink ? (
+									<SinglePostInt key={index} postProps={postProps} />
+								) : (
+									<SinglePostExt key={index} postProps={postProps} />
+								);
+							} else {
+								return null;
+							}
+						})}
+					</div>
 				</PostsSection>
 			</React.Fragment>
 		)}
