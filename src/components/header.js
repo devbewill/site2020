@@ -9,7 +9,7 @@ const Navbar = styled.header`
 	padding: 1em;
 	top: 0;
 	@media only screen and (max-width: 600px) {
-		padding: 2rem 0 1rem;
+		padding: 1rem 0;
 	}
 `;
 

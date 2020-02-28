@@ -6,9 +6,10 @@ import { Container } from '../styles/styledComponent';
 import Layout from '../components/layout';
 import Head from '../components/head';
 import styled from 'styled-components';
+import Pagetitle from '../components/pagetitle';
 
 const PostList = styled.div`
-	padding-top: 20vh;
+	padding-top: 10vh;
 	min-height: 100vh;
 	display: flex;
 	flex-wrap: wrap;
@@ -42,7 +43,7 @@ const Post = styled.div`
 	}
 
 	p {
-		font-size: 0.8em;
+		font-size: 0.8rem;
 		margin: 0;
 		margin-top: 0.5em;
 		padding-bottom: 2em;
@@ -73,10 +74,28 @@ const Post = styled.div`
 			color: ${(props) => props.theme.colors.primary};
 		}
 	}
+
+	@media only screen and (max-width: 600px) {
+		width: 100%;
+		padding: 0;
+		min-height: 0;
+
+		h2 {
+			font-size: 2.8rem;
+			letter-spacing: -3px;
+		}
+
+		p,
+		a,
+		li,
+		.date {
+			font-size: 1rem;
+		}
+	}
 `;
 
 const StyledLink = styled(Link)`
-font-size: 0.8em;
+font-size: 0.8rem;
 color: #444;
 font-weight: 400;
 transition: all 0.4s ease-in-out;
@@ -122,7 +141,7 @@ const BlogPage = () => {
 			<Layout>
 				<Container>
 					<Head title="Words" />
-					{/* <Pagetitle title="Words" description="some description" /> */}
+					<Pagetitle title="Words" description="Stories from the web and stories written by me" />
 
 					<PostList>
 						{data.allContentfulBlogPost.edges.map((edge, index) => {

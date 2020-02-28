@@ -5,18 +5,15 @@ import { Container } from '../styles/styledComponent';
 const StyledPagetitle = styled.div`
 	h1 {
 		padding-top: 30vh;
-		font-size: 6rem;
+		font-size: 4rem;
 		line-height: 1;
-		/* color: #ff8300;
-		color: #560c84; */
 		font-weight: 800;
 	}
 
 	p {
-		font-size: 1.4rem;
+		font-size: 1.2rem;
 		line-height: 1.5;
 		font-weight: 300;
-		padding-bottom: 3em;
 	}
 `;
 

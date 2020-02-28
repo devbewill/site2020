@@ -29,7 +29,7 @@ const ExternalPost = ({ postProps }) => {
 			text-transform: uppercase;
 			margin: 0;
 			font-size: 1.5rem;
-
+			letter-spacing: -2px;
 			line-height: 1;
 			font-weight: 900;
 			transition: all 0.3s linear;

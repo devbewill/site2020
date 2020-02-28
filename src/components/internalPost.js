@@ -12,10 +12,12 @@ const InternalPost = ({ postProps }) => {
 		transition: all 0.3s linear;
 		text-decoration: none;
 		color: #111;
+		background: #222;
 
 
 
 		h2 {
+			color: #fff;
 			font-family: 'Oswald';
 			text-transform: uppercase;
 			margin: 0;
@@ -27,13 +29,14 @@ const InternalPost = ({ postProps }) => {
 		}
 
 		.date {
+			color: #fff;
 			text-align: right;
 			font-size: 0.6em;
 			padding-top: 1em;
 			transition: all 0.3s linear;
 		}
 
-		p {
+		p {color: #fff;
 			font-size: 0.8em;
 			margin: 0;
 			margin-top: 0.5em;
@@ -41,6 +44,7 @@ const InternalPost = ({ postProps }) => {
 		}
 
 		.tags {
+
 			list-style-type: none;
 			margin: 0;
 			display: flex;
