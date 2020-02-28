@@ -1,78 +1,150 @@
 import React from 'react';
-import { useStaticQuery } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import SinglePostInt from './singlePostInt';
 import SinglePostExt from './singlePostExt';
 
-const PostList = () => {
-	const data = useStaticQuery(graphql`
-		query {
-			allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
-				edges {
-					node {
-						title
-						link
-						slug
-						publishedDate(fromNow: true)
-						tag
-						featuredImage {
-							fluid(maxWidth: 600) {
-								...GatsbyContentfulFluid_withWebp
+const PostsSection = styled.section`
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+`;
+
+export default () => (
+	<StaticQuery
+		query={graphql`
+			query {
+				allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
+					edges {
+						node {
+							title
+							link
+							slug
+							publishedDate(fromNow: true)
+							tag
+							featuredImage {
+								fluid(maxWidth: 600) {
+									...GatsbyContentfulFluid_withWebp
+								}
 							}
-						}
-						bodyMd {
-							childMarkdownRemark {
-								excerpt
-								html
+							bodyMd {
+								childMarkdownRemark {
+									excerpt
+									html
+								}
 							}
 						}
 					}
 				}
 			}
-		}
-	`);
+		`}
+		render={(data) => (
+			<React.Fragment>
+				<h2>
+					<span>in</span>sight
+				</h2>
+				<PostsSection>
+					{data.allContentfulBlogPost.edges.map((edge, index) => {
+						if (index < 9) {
+							let target, postProps;
+							edge.node.link ? (target = edge.node.link) : (target = `/blog/${edge.node.slug}`);
 
-	const PostsSection = styled.section`
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-	`;
+							postProps = {
+								slug: `/blog/${edge.node.slug}`,
+								imgPost: edge.node.featuredImage.fluid.src,
+								externalLink: edge.node.link,
+								tags: edge.node.tag,
+								title: edge.node.title,
+								body: edge.node.bodyMd.childMarkdownRemark.html,
+								date: edge.node.publishedDate,
+								excerpt: edge.node.bodyMd.childMarkdownRemark.excerpt,
+								target: target
+							};
 
-	return (
-		<React.Fragment>
-			<h2>
-				<span>in</span>sight
-			</h2>
-			<PostsSection>
-				{data.allContentfulBlogPost.edges.map((edge, index) => {
-					if (index < 9) {
-						let target, postProps;
-						edge.node.link ? (target = edge.node.link) : (target = `/blog/${edge.node.slug}`);
+							return !postProps.externalLink ? (
+								<SinglePostInt key={index} postProps={postProps} />
+							) : (
+								<SinglePostExt key={index} postProps={postProps} />
+							);
+						} else {
+							return null;
+						}
+					})}
+				</PostsSection>
+			</React.Fragment>
+		)}
+	/>
+);
 
-						postProps = {
-							slug: `/blog/${edge.node.slug}`,
-							imgPost: edge.node.featuredImage.fluid.src,
-							externalLink: edge.node.link,
-							tags: edge.node.tag,
-							title: edge.node.title,
-							body: edge.node.bodyMd.childMarkdownRemark.html,
-							date: edge.node.publishedDate,
-							excerpt: edge.node.bodyMd.childMarkdownRemark.excerpt,
-							target: target
-						};
+// const PostList = () => {
+// 	const data = useStaticQuery(graphql`
+// 		query {
+// 			allContentfulBlogPost(sort: { fields: publishedDate, order: DESC }) {
+// 				edges {
+// 					node {
+// 						title
+// 						link
+// 						slug
+// 						publishedDate(fromNow: true)
+// 						tag
+// 						featuredImage {
+// 							fluid(maxWidth: 600) {
+// 								...GatsbyContentfulFluid_withWebp
+// 							}
+// 						}
+// 						bodyMd {
+// 							childMarkdownRemark {
+// 								excerpt
+// 								html
+// 							}
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 	`);
 
-						return !postProps.externalLink ? (
-							<SinglePostInt key={index} postProps={postProps} />
-						) : (
-							<SinglePostExt key={index} postProps={postProps} />
-						);
-					} else {
-						return null;
-					}
-				})}
-			</PostsSection>
-		</React.Fragment>
-	);
-};
+// 	const PostsSection = styled.section`
+// 		display: flex;
+// 		flex-wrap: wrap;
+// 		justify-content: space-between;
+// 	`;
 
-export default PostList;
+// 	return (
+// 		<React.Fragment>
+// 			<h2>
+// 				<span>in</span>sight
+// 			</h2>
+// 			<PostsSection>
+// 				{data.allContentfulBlogPost.edges.map((edge, index) => {
+// 					if (index < 9) {
+// 						let target, postProps;
+// 						edge.node.link ? (target = edge.node.link) : (target = `/blog/${edge.node.slug}`);
+
+// 						postProps = {
+// 							slug: `/blog/${edge.node.slug}`,
+// 							imgPost: edge.node.featuredImage.fluid.src,
+// 							externalLink: edge.node.link,
+// 							tags: edge.node.tag,
+// 							title: edge.node.title,
+// 							body: edge.node.bodyMd.childMarkdownRemark.html,
+// 							date: edge.node.publishedDate,
+// 							excerpt: edge.node.bodyMd.childMarkdownRemark.excerpt,
+// 							target: target
+// 						};
+
+// 						return !postProps.externalLink ? (
+// 							<SinglePostInt key={index} postProps={postProps} />
+// 						) : (
+// 							<SinglePostExt key={index} postProps={postProps} />
+// 						);
+// 					} else {
+// 						return null;
+// 					}
+// 				})}
+// 			</PostsSection>
+// 		</React.Fragment>
+// 	);
+// };
+
+// export default PostList;
