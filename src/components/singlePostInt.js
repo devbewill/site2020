@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-const InternalPost = ({ postProps }) => {
+const SinglePostInt = ({ postProps }) => {
 	const StyledLink = styled(Link)`
 		position: relative;
 		display: flex;
@@ -119,4 +119,4 @@ const InternalPost = ({ postProps }) => {
 	);
 };
 
-export default InternalPost;
+export default SinglePostInt;

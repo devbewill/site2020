@@ -1,8 +1,8 @@
 import React from 'react';
-import { useStaticQuery, Link } from 'gatsby';
+import { useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
-import InternalPost from './internalPost';
-import ExternalPost from './externalPost';
+import SinglePostInt from './singlePostInt';
+import SinglePostExt from './singlePostExt';
 
 const PostList = () => {
 	const data = useStaticQuery(graphql`
@@ -48,25 +48,26 @@ const PostList = () => {
 					if (index < 9) {
 						let target, postProps;
 						edge.node.link ? (target = edge.node.link) : (target = `/blog/${edge.node.slug}`);
-						{
-							postProps = {
-								slug: `/blog/${edge.node.slug}`,
-								imgPost: edge.node.featuredImage.fluid.src,
-								externalLink: edge.node.link,
-								tags: edge.node.tag,
-								title: edge.node.title,
-								body: edge.node.bodyMd.childMarkdownRemark.html,
-								date: edge.node.publishedDate,
-								excerpt: edge.node.bodyMd.childMarkdownRemark.excerpt,
-								target: target
-							};
-						}
+
+						postProps = {
+							slug: `/blog/${edge.node.slug}`,
+							imgPost: edge.node.featuredImage.fluid.src,
+							externalLink: edge.node.link,
+							tags: edge.node.tag,
+							title: edge.node.title,
+							body: edge.node.bodyMd.childMarkdownRemark.html,
+							date: edge.node.publishedDate,
+							excerpt: edge.node.bodyMd.childMarkdownRemark.excerpt,
+							target: target
+						};
 
 						return !postProps.externalLink ? (
-							<InternalPost key={index} postProps={postProps} />
+							<SinglePostInt key={index} postProps={postProps} />
 						) : (
-							<ExternalPost key={index} postProps={postProps} />
+							<SinglePostExt key={index} postProps={postProps} />
 						);
+					} else {
+						return null;
 					}
 				})}
 			</PostsSection>

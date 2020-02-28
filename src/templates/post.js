@@ -2,8 +2,7 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Theme from '../styles/Theme';
-import { Container, ImageWrapper } from '../styles/styledComponent';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Container } from '../styles/styledComponent';
 import Layout from '../components/layout';
 import TextContent from '../components/textContent';
 
@@ -28,22 +27,22 @@ export const query = graphql`
 `;
 
 const Post = (props) => {
-	const options = {
-		renderNode: {
-			'embedded-asset-block': (node) => {
-				const alt = node.data.target.fields.title['en-US'];
-				const url = node.data.target.fields.file['en-US'].url;
-				return <img alt={alt} src={url} />;
-			}
-		}
-	};
+	// const options = {
+	// 	renderNode: {
+	// 		'embedded-asset-block': (node) => {
+	// 			const alt = node.data.target.fields.title['en-US'];
+	// 			const url = node.data.target.fields.file['en-US'].url;
+	// 			return <img alt={alt} src={url} />;
+	// 		}
+	// 	}
+	// };
 
 	const title = props.data.contentfulBlogPost.title;
 	const publishedDate = props.data.contentfulBlogPost.publishedDate;
 	const bodyMD = props.data.contentfulBlogPost.bodyMd.childMarkdownRemark.html;
-	const danger_dom = <div dangerouslySetInnerHTML={{ __html: bodyMD }} />;
 	const tags = props.data.contentfulBlogPost.tag;
-	const dom = <div>{danger_dom}</div>;
+	// const danger_dom = <div dangerouslySetInnerHTML={{ __html: bodyMD }} />;
+	// const dom = <div>{danger_dom}</div>;
 
 	return (
 		<Theme>
@@ -60,7 +59,7 @@ const Post = (props) => {
 						})}
 					</ul>
 
-					<TextContent content={props.data.contentfulBlogPost.bodyMd.childMarkdownRemark.html} />
+					<TextContent content={bodyMD} />
 
 					<nav>
 						<ul>

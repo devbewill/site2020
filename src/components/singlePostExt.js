@@ -1,14 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ExternalPost = ({ postProps }) => {
+const SinglePostExt = ({ postProps }) => {
 	const cleanUrl = (url) => {
 		let urlCleaned = url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, '').split('/')[0];
 		return urlCleaned;
 	};
-
-	let urlParts = /^(?:\w+\:\/\/)?([^\/]+)(.*)$/.exec(postProps.target);
-	let hostname = urlParts[1];
 
 	const StyledLink = styled.a`
 		position: relative;
@@ -159,4 +156,4 @@ const ExternalPost = ({ postProps }) => {
 	);
 };
 
-export default ExternalPost;
+export default SinglePostExt;

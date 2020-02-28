@@ -4,7 +4,7 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 import styled from 'styled-components';
 import Theme from '../styles/Theme';
 import Layout from '../components/layout';
-import { getRandomColor, Container } from '../styles/styledComponent';
+import { Container } from '../styles/styledComponent';
 import { WorksStyled } from '../styles/worksStyled';
 
 const Anchor = styled(Link)`
@@ -110,7 +110,7 @@ const Works = (props, inView) => {
 									{/* <img src={edge.node.featuredImage.file.url} alt="" /> */}
 									{edge.node.gallery ? ( //IF not empty
 										edge.node.gallery.map((img, index) => {
-											return <img key={index} src={img.file.url} />;
+											return <img key={index} src={img.file.url} alt={edge.node.title} />;
 										})
 									) : null}
 								</div>

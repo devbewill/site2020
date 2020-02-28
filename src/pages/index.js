@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Theme from '../styles/Theme';
 import { Container, ImageWrapper } from '../styles/styledComponent';

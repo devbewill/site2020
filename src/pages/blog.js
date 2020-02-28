@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
 import Theme from '../styles/Theme';
 import { Container } from '../styles/styledComponent';
 import Layout from '../components/layout';
@@ -91,6 +90,15 @@ const Post = styled.div`
 		.date {
 			font-size: 1rem;
 		}
+
+		&:hover {
+			box-shadow: none;
+
+			h2,
+			a {
+				color: ${(props) => props.theme.colors.primary};
+			}
+		}
 	}
 `;
 
@@ -101,14 +109,14 @@ font-weight: 400;
 transition: all 0.4s ease-in-out;
 `;
 
-const ImgPost = styled.div`
-	margin: 0 2em;
-	height: 200px;
-	width: 300px;
-	background: url(${(props) => props.background});
-	background-position: center center;
-	background-size: cover;
-`;
+// const ImgPost = styled.div`
+// 	margin: 0 2em;
+// 	height: 200px;
+// 	width: 300px;
+// 	background: url(${(props) => props.background});
+// 	background-position: center center;
+// 	background-size: cover;
+// `;
 
 const BlogPage = () => {
 	const data = useStaticQuery(graphql`

@@ -33,7 +33,6 @@ const Project = (props) => {
 	};
 
 	const title = props.data.contentfulProject.title;
-	const body = props.data.contentfulProject.body.body;
 	const bodyPost = documentToReactComponents(props.data.contentfulProject.body.json, options);
 
 	return (

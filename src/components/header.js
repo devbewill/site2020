@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const Navbar = styled.header`
@@ -55,18 +55,15 @@ const NavList = styled.ul`
 			border-bottom: 3px solid ${(props) => props.theme.colors.primary};
 		}
 	}
+
+	@media only screen and (max-width: 600px) {
+		a {
+			font-size: 0.8rem;
+		}
+	}
 `;
 
 const Header = () => {
-	const data = useStaticQuery(graphql`
-		query {
-			site {
-				siteMetadata {
-					title
-				}
-			}
-		}
-	`);
 	return (
 		<Navbar>
 			<NavList>

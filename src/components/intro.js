@@ -1,21 +1,7 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-const Intro = (props) => {
-	const data = useStaticQuery(graphql`
-		query {
-			avatar: file(relativePath: { eq: "steperelli.jpeg" }) {
-				childImageSharp {
-					fluid(grayscale: true, maxWidth: 600, maxHeight: 600, cropFocus: CENTER, toFormat: PNG) {
-						...GatsbyImageSharpFluid
-					}
-				}
-			}
-		}
-	`);
-
+const Intro = () => {
 	const IntroSection = styled.section`
 		padding-top: 45vh;
 
@@ -61,6 +47,7 @@ const Intro = (props) => {
 
 			p {
 				max-width:90vw;
+				font-size: 0.95rem
 			}
 
 			.infos {
