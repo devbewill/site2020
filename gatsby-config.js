@@ -14,7 +14,7 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-google-fonts`,
 			options: {
-				fonts: [ `Muli\:300,400,700,900`, `Oswald\:300,400,700`, `Six+Caps` ],
+				fonts: [ `Muli\:300,400,700,900`, `Oswald\:300,400,700` ],
 				display: 'swap'
 			}
 		},
