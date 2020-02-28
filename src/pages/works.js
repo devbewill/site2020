@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { InView } from 'react-intersection-observer';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import styled from 'styled-components';
+import Theme from '../styles/Theme';
+import Layout from '../components/layout';
 import { getRandomColor, Container } from '../styles/styledComponent';
 import { WorksStyled } from '../styles/worksStyled';
 
@@ -85,33 +87,40 @@ const Works = (props, inView) => {
 
 	// console.log('Inview:', inView, entry)
 	return (
-		<React.Fragment>
-			<SectionTitle className={`${!inViewEl ? '--notInView' : '--inView'}`}>{currentWork} </SectionTitle>
-			<Container>
-				{data.allContentfulProject.edges.map((edge, index) => {
-					return (
-						<WorksStyled className={`${!inViewEl ? '--notInView' : '--inView'}`}>
-							<InView key={index} threshold="1" title={edge.node.title} onChange={setInViewWorkTitle} />
-							<div className="workText">
-								<h3>{edge.node.title}</h3>
-								{/* <p>{edge.node.descriptionLong.descriptionLong}</p> */}
-								<Anchor to={`/portfolio/${edge.node.slug}`}>go to project</Anchor>
-							</div>
+		<Theme>
+			<Layout>
+				<SectionTitle className={`${!inViewEl ? '--notInView' : '--inView'}`}>{currentWork} </SectionTitle>
+				<Container>
+					{data.allContentfulProject.edges.map((edge, index) => {
+						return (
+							<WorksStyled className={`${!inViewEl ? '--notInView' : '--inView'}`}>
+								<InView
+									key={index}
+									threshold="1"
+									title={edge.node.title}
+									onChange={setInViewWorkTitle}
+								/>
+								<div className="workText">
+									<h3>{edge.node.title}</h3>
+									{/* <p>{edge.node.descriptionLong.descriptionLong}</p> */}
+									<Anchor to={`/portfolio/${edge.node.slug}`}>go to project</Anchor>
+								</div>
 
-							<div className="workVisual">
-								{/* <img src={edge.node.featuredImage.file.url} alt="" /> */}
-								{edge.node.gallery ? ( //IF not empty
-									edge.node.gallery.map((img, index) => {
-										return <img key={index} src={img.file.url} />;
-									})
-								) : null}
-							</div>
-							<InView />
-						</WorksStyled>
-					);
-				})}
-			</Container>
-		</React.Fragment>
+								<div className="workVisual">
+									{/* <img src={edge.node.featuredImage.file.url} alt="" /> */}
+									{edge.node.gallery ? ( //IF not empty
+										edge.node.gallery.map((img, index) => {
+											return <img key={index} src={img.file.url} />;
+										})
+									) : null}
+								</div>
+								<InView />
+							</WorksStyled>
+						);
+					})}
+				</Container>
+			</Layout>
+		</Theme>
 	);
 };
 
