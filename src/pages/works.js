@@ -94,7 +94,7 @@ const Works = (props, inView) => {
 							<InView key={index} threshold="1" title={edge.node.title} onChange={setInViewWorkTitle} />
 							<div className="workText">
 								<h3>{edge.node.title}</h3>
-								<p>{edge.node.descriptionLong.descriptionLong}</p>
+								{/* <p>{edge.node.descriptionLong.descriptionLong}</p> */}
 								<Anchor to={`/portfolio/${edge.node.slug}`}>go to project</Anchor>
 							</div>
 
