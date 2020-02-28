@@ -6,8 +6,11 @@ const Navbar = styled.header`
 	width: 100%;
 	position: fixed;
 	display: flex;
-	padding: 2rem 2rem 2rem;
+	padding: 1em;
 	top: 0;
+	@media only screen and (max-width: 600px) {
+		padding: 1rem 0;
+	}
 `;
 
 const NavList = styled.ul`
@@ -17,12 +20,21 @@ const NavList = styled.ul`
 	display: flex;
 	margin: 0;
 
+	li {
+		margin: 0;
+	}
+
 	li:first-child {
-		font-weight: 800;
 		flex: auto;
 
 		a {
-			font-weight: 800;
+			color: ${(props) => props.theme.colors.primary};
+			font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+			font-weight: 900;
+			letter-spacing: -2px;
+			font-size: 2rem;
+			display: inline-block;
+			margin-lefT: 0.7rem;
 
 			&.active {
 				padding-bottom: 0;
@@ -33,12 +45,14 @@ const NavList = styled.ul`
 
 	a {
 		text-decoration: none;
-		margin: 0 1rem;
+		font-size: 0.6rem;
+		margin: 0 0.7rem 0 0;
 		color: #222;
-		font-weight: 300;
+		font-weight: 700;
+		text-transform: uppercase;
+
 		&.active {
-			padding-bottom: 0.1rem;
-			border-bottom: 1px solid #fff;
+			border-bottom: 3px solid ${(props) => props.theme.colors.primary};
 		}
 	}
 `;
@@ -58,7 +72,7 @@ const Header = () => {
 			<NavList>
 				<li>
 					<Link to="/" activeClassName="active">
-						stefanoperelli
+						SP
 					</Link>
 				</li>
 				{/* <li>
@@ -66,11 +80,11 @@ const Header = () => {
 						About
 					</Link>
 				</li> */}
-				<li>
+				{/* <li>
 					<Link to="/portfolio" activeClassName="active">
 						works
 					</Link>
-				</li>
+				</li> */}
 				<li>
 					<Link to="/blog" activeClassName="active">
 						words

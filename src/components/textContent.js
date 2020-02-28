@@ -2,17 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Content = styled.div`
-	max-width: 100%;
 	.gatsby-highlight {
 		margin: 4rem 0;
+		font-size: 0.7em;
+		pre {
+			font-size: 0.7rem;
+			margin-bottom: 2rem;
+		}
+
 		span.parameter {
-			font-family: Inconsolata, Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
+			font-family: Consolas, Courier New, monospace;
 		}
 	}
-	p,
-	pre {
-		margin-bottom: 2rem;
-	}
+
 	ul {
 		list-style: none;
 		margin-bottom: 2rem;

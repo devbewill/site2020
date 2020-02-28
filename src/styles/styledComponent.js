@@ -10,18 +10,21 @@ export const Container = styled.div`
 	justify-content: center;
 	max-width: ${(props) => (props.fullwidth ? 'none' : '80vw')};
 	flex-grow: 1;
+
+	@media only screen and (max-width: 600px) {
+		max-width: ${(props) => (props.fullwidth ? 'none' : '90vw')};
+	}
 `;
 
-// export const SectionTitle = styled.h1`
-// 	position: fixed;
-// 	top: 30%;
-// 	text-align: right;
-// 	padding: 0.5em 0.2em;
-// 	margin: 0;
-// 	line-height: 1.5;
-// 	font-size: 1rem;
-// 	font-weight: 800;
-// 	writing-mode: vertical-rl;
-// 	color: #fff;
-// 	background: #111;
-// `;
+export const ImageWrapper = styled.div`
+	margin: 0 auto;
+	padding: 5vw ${(props) => props.sidePadding || '0'};
+
+	@media only screen and (max-width: 600px) {
+		padding: 0;
+	}
+
+	img {
+		margin: 0 auto;
+	}
+`;
