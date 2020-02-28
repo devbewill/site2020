@@ -6,7 +6,7 @@ import { Container } from '../styles/styledComponent';
 import Layout from '../components/layout';
 import Head from '../components/head';
 import styled from 'styled-components';
-import Pagetitle from '../components/pagetitle';
+import Pagetitle from '../components/pageTitle';
 
 const PostList = styled.div`
 	padding-top: 10vh;
