@@ -9,8 +9,8 @@ const theme = {
 		green: '#62ffaa',
 		lightpurple: '#caafff',
 		water: '#2ee8b6',
-		military: '#2ee8b6',
-		softpink: '#ffdff1'
+		softpink: '#ffdff1',
+		purple: '7505d8'
 	},
 	fonts: [ 'sans-serif', 'Roboto' ],
 	fontSizes: {
