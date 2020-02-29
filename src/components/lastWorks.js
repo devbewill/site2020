@@ -33,6 +33,7 @@ const LastWorks = () => {
 	const WorksSection = styled.section`
 		position: relative;
 		min-height: 100vh;
+
 		ul {
 			margin: 0;
 			padding: 3em 0;
@@ -63,12 +64,11 @@ const LastWorks = () => {
 			.title {
 				font-family: 'Oswald', sans-serif;
 				margin: 0;
-				padding-bottom: 10px;
 				text-transform: uppercase;
 				font-size: 3rem;
 				letter-spacing: -5px;
 				font-weight: 900;
-				line-height: 0.3;
+				line-height: 0.9;
 				pointer-events: auto;
 				cursor: pointer;
 				transition: all 0.3s linear;
@@ -77,7 +77,6 @@ const LastWorks = () => {
 			.description {
 				opacity: 0;
 				font-weight: 300;
-				padding-top: 0.7em;
 				margin-right: 0;
 				margin-left: 35vw;
 				transition: all 0.3s linear;
@@ -92,7 +91,7 @@ const LastWorks = () => {
 
 				.description {
 					opacity: 1;
-					height: 5em;
+					height: 4em;
 				}
 			}
 		}
@@ -135,7 +134,6 @@ const LastWorks = () => {
 				.title {
 					font-size: 2rem;
 					letter-spacing: -3px;
-					line-height: 0.8;
 				}
 				.description {
 					padding-top: 0;
@@ -143,7 +141,7 @@ const LastWorks = () => {
 				}
 				&:hover {
 					.description {
-						height: 4em;
+						height: 3em;
 					}
 				}
 			}
