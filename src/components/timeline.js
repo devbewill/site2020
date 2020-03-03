@@ -5,7 +5,7 @@ const Timeline = () => {
 	const history = [
 		{
 			year: 'present',
-			role: 'Product Designer',
+			role: 'UXer',
 			company: 'PAX Italia'
 		},
 		{
