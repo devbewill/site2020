@@ -78,10 +78,11 @@ const LastWorks = () => {
 				opacity: 0;
 				font-weight: 300;
 				margin-right: 0;
-				margin-left: 35vw;
+				margin-left: 30vw;
 				transition: all 0.3s linear;
 				line-height: 1;
 				height: 0;
+				padding-top: 0.5em;
 			}
 
 			&:hover {
@@ -103,9 +104,10 @@ const LastWorks = () => {
 
 		.hover-image {
 			position: absolute;
+			max-width: 80%;
 			opacity: 0;
 			z-index: 2;
-			top: 5vw;
+			top: 10vw;
 			left: -20vw;
 			bottom: 0;
 			pointer-events: none;
