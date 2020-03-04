@@ -66,7 +66,7 @@ const Intro = () => {
 
 	return (
 		<IntroSection>
-			<span className="infos">Stefano Perelli __ UXer</span>
+			<span className="infos">Stefano Perelli __ Product Designer</span>
 			<h1>
 				Solving<br /> problems <br />with <span className="underline">design </span>
 			</h1>
