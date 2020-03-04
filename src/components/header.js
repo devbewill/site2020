@@ -32,7 +32,7 @@ const NavList = styled.ul`
 			font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 			font-weight: 900;
 			letter-spacing: -2px;
-			font-size: 2rem;
+			font-size: 1.5rem;
 			display: inline-block;
 			margin-lefT: 0.7rem;
 
