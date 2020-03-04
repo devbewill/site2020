@@ -6,7 +6,7 @@ const Footer = () => {
 	const StyledFooter = styled.footer`
 		background: ${(props) => props.theme.colors.primary};
 		margin: 30vh auto 0 auto;
-		padding: 3em 20vw 1em 20vw;
+		padding: 3em 20vw 0.5em 20vw;
 		color: #fff;
 
 		h2 {
@@ -45,7 +45,8 @@ const Footer = () => {
 		.credits {
 			margin: 0;
 
-			font-size: 1rem;
+			font-size: 0.65rem;
+			font-weight: bold;
 			padding-top: 4em;
 		}
 
@@ -97,7 +98,7 @@ const Footer = () => {
 			</ul>
 
 			<p className="credits">
-				{data.site.siteMetadata.title} <br />
+				{data.site.siteMetadata.title} . made with GatsbyJs & hosted on Netlify <br />
 			</p>
 		</StyledFooter>
 	);
