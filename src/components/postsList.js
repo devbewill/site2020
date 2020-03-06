@@ -40,8 +40,9 @@ export default () => (
 				}
 			}
 		`}
+
 		render={(data) => (
-			<React.Fragment>
+			<>
 				<PostsSection>
 					<h2>
 						<span>in</span>sight
@@ -67,15 +68,15 @@ export default () => (
 								return !postProps.externalLink ? (
 									<SinglePostInt key={index} postProps={postProps} />
 								) : (
-									<SinglePostExt key={index} postProps={postProps} />
-								);
+										<SinglePostExt key={index} postProps={postProps} />
+									);
 							} else {
 								return null;
 							}
 						})}
 					</div>
 				</PostsSection>
-			</React.Fragment>
+			</>
 		)}
 	/>
 );
