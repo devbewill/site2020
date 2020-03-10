@@ -8,22 +8,18 @@ import styled from 'styled-components';
 import Pagetitle from '../components/pageTitle';
 
 const PostList = styled.div`
-	padding-top: 10vh;
-	min-height: 100vh;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	margin-top: 10vh;
+	display: grid;
+  	grid-gap: 5vw;
+  	grid-template-columns:repeat(auto-fit,minmax(32vw,1fr));
+  	/* grid-auto-rows: 25vw;
+  	grid-auto-flow: dense; */
 `;
 
 const Post = styled.div`
-	position: relative;
 	display: flex;
 	flex-flow: column;
-	margin: 1em 0;
-	padding: 1.5em;
-	width: calc(50% - 1em);
-	min-height: 500px;
-	transition: all 0.3s ease-in;
+	transition: all 0.2s linear;
 
 	h2 {
 		font-family: 'Oswald';
@@ -64,9 +60,9 @@ const Post = styled.div`
 
 	&:hover {
 		/* transform: scale(1.1); */
-		box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.024), 0 6.7px 5.3px rgba(0, 0, 0, 0.038),
+		/* box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.024), 0 6.7px 5.3px rgba(0, 0, 0, 0.038),
 			0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.062),
-			0 41.8px 33.4px rgba(0, 0, 0, 0.076), 0 100px 80px rgba(0, 0, 0, 0.02);
+			0 41.8px 33.4px rgba(0, 0, 0, 0.076), 0 100px 80px rgba(0, 0, 0, 0.02); */
 
 		h2,
 		a {
@@ -109,14 +105,14 @@ font-weight: 400;
 transition: all 0.4s ease-in-out;
 `;
 
-// const ImgPost = styled.div`
-// 	margin: 0 2em;
-// 	height: 200px;
-// 	width: 300px;
-// 	background: url(${(props) => props.background});
-// 	background-position: center center;
-// 	background-size: cover;
-// `;
+const ImgPost = styled.div`
+	margin: 0 2em;
+	height: 200px;
+	width: 300px;
+	background: url(${(props) => props.background});
+	background-position: center center;
+	background-size: cover;
+`;
 
 const BlogPage = () => {
 	const data = useStaticQuery(graphql`
@@ -165,7 +161,7 @@ const BlogPage = () => {
 									</ul>
 									<h2>{edge.node.title}</h2>
 									<span className="date">{edge.node.publishedDate}</span>
-									<p>{edge.node.bodyMd.childMarkdownRemark.excerpt}</p>
+									{/* <p>{edge.node.bodyMd.childMarkdownRemark.excerpt}</p> */}
 
 									<StyledLink to={`/blog/${edge.node.slug}`}>Read article</StyledLink>
 								</Post>
