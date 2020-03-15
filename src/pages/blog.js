@@ -8,70 +8,73 @@ import styled from 'styled-components';
 import Pagetitle from '../components/pageTitle';
 
 const PostList = styled.div`
-	padding-top: 10vh;
-	min-height: 100vh;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	margin-top: 10vh;
+	display: grid;
+  	grid-gap: 2vw;
+  	grid-template-columns:repeat(auto-fit,minmax(22vw,1fr));
+  	/* grid-auto-rows: 20vw;
+  	grid-auto-flow: dense; */
 `;
 
-const Post = styled.div`
+const Post = styled(Link)`
 	position: relative;
 	display: flex;
 	flex-flow: column;
-	margin: 1em 0;
-	padding: 1.5em;
-	width: calc(50% - 1em);
-	min-height: 500px;
-	transition: all 0.3s ease-in;
-
-	h2 {
-		font-family: 'Oswald';
-		text-transform: uppercase;
-		margin: 0;
-		font-size: 2.1rem;
-		letter-spacing: -4px;
-		line-height: 0.95;
-		font-weight: 900;
-		transition: all 0.4s linear;
-	}
+	transition: all 0.2s linear;
+	margin: 0.5em 0;
+	box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
 
 	.date {
-		text-align: right;
-		font-size: 0.6em;
-	}
-
-	p {
-		font-size: 0.8rem;
-		margin: 0;
-		margin-top: 0.5em;
-		padding-bottom: 2em;
-	}
-
-	.tags {
-		list-style-type: none;
-		margin: 0;
-		display: flex;
-		font-size: 0.6rem;
+		position: absolute;
+		padding: 0.2em 0.4em;
+		background: ${(props) => props.theme.colors.primary};
 		text-transform: uppercase;
-		font-weight: 800;
-
-		li {
-			margin-right: 10px;
-			color: ${(props) => props.theme.colors.primary};
-		}
+		color: #fff;
+		right: 0;
+		font-size: 0.5em;
 	}
+
+	.content {
+		width: 100%;
+		padding: 0.6em 1em;
+
+		.tags {
+			list-style-type: none;
+			margin: 0;
+			display: flex;
+			font-size: 0.6rem;
+			text-transform: uppercase;
+			font-weight: 800;
+
+			li {
+				margin-right: 10px;
+				color: ${(props) => props.theme.colors.primary};
+			}
+		}
+
+		h2 {
+			font-family: 'Oswald';
+			text-transform: uppercase;
+			margin: 0.25em 0;
+			font-size: 1.2rem;
+			letter-spacing: -1px;
+			line-height: 0.95;
+			font-weight: 900;
+			transition: all 0.4s linear;
+		}
+
+		p {
+			font-size: 0.7rem;
+			padding-bottom: 1em;
+			margin: 0;
+		}
+
+	}
+
 
 	&:hover {
-		/* transform: scale(1.1); */
-		box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.024), 0 6.7px 5.3px rgba(0, 0, 0, 0.038),
-			0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.062),
-			0 41.8px 33.4px rgba(0, 0, 0, 0.076), 0 100px 80px rgba(0, 0, 0, 0.02);
+		transform: scale(1.05);
 
-		h2,
-		a {
-			color: ${(props) => props.theme.colors.primary};
-		}
 	}
 
 	@media only screen and (max-width: 600px) {
@@ -102,21 +105,14 @@ const Post = styled.div`
 	}
 `;
 
-const StyledLink = styled(Link)`
-font-size: 0.8rem;
-color: #444;
-font-weight: 400;
-transition: all 0.4s ease-in-out;
-`;
 
-// const ImgPost = styled.div`
-// 	margin: 0 2em;
-// 	height: 200px;
-// 	width: 300px;
-// 	background: url(${(props) => props.background});
-// 	background-position: center center;
-// 	background-size: cover;
-// `;
+const ImgPost = styled.div`
+	height: 200px;
+	width: 100%;
+	background: url(${(props) => props.background});
+	background-position: center center;
+	background-size: cover;
+`;
 
 const BlogPage = () => {
 	const data = useStaticQuery(graphql`
@@ -154,20 +150,23 @@ const BlogPage = () => {
 					<PostList>
 						{data.allContentfulBlogPost.edges.map((edge, index) => {
 							return (
-								<Post>
-									{/* <div className="col">
-										<ImgPost background={edge.node.featuredImage.fluid.src} />
-									</div> */}
-									<ul className="tags">
-										{edge.node.tag.map((tag, index) => {
-											return <li key={index}>{tag}</li>;
-										})}
-									</ul>
-									<h2>{edge.node.title}</h2>
-									<span className="date">{edge.node.publishedDate}</span>
-									<p>{edge.node.bodyMd.childMarkdownRemark.excerpt}</p>
+								<Post to={`/blog/${edge.node.slug}`}>
 
-									<StyledLink to={`/blog/${edge.node.slug}`}>Read article</StyledLink>
+									<div className="thumb">
+										<span className="date">{edge.node.publishedDate}</span>
+										<ImgPost background={edge.node.featuredImage.fluid.src} />
+									</div>
+
+									<div className="content">
+										<ul className="tags">
+											{edge.node.tag.map((tag, index) => {
+												return <li key={index}>{tag}</li>;
+											})}
+										</ul>
+										<h2>{edge.node.title}</h2>
+
+										<p>{edge.node.bodyMd.childMarkdownRemark.excerpt}</p>
+									</div>
 								</Post>
 							);
 						})}
