@@ -4,7 +4,12 @@ import styled from 'styled-components';
 const Timeline = () => {
 	const history = [
 		{
-			year: 'present',
+			year: 'Present',
+			role: 'Product Manager',
+			company: 'FiscoZen'
+		},
+		{
+			year: '2020',
 			role: 'Product Designer',
 			company: 'PAX Italia'
 		},
