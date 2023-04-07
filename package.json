@@ -30,7 +30,7 @@
     "gatsby-transformer-remark": "^2.6.48",
     "gatsby-transformer-sharp": "^2.3.7",
     "install": "^0.13.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^8.0.0",
     "npm": "^6.13.2",
     "prismjs": "^1.19.0",
     "react": "^16.12.0",
